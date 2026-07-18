@@ -1551,6 +1551,18 @@
     transform: translateX(4px);
   }
 
+  .experience-button.is-activating {
+    cursor: progress;
+  }
+
+  .experience-button.is-activating .button-border {
+    animation-duration: 1.2s;
+  }
+
+  .experience-button.is-activating .button-mark i {
+    transform: translateX(5px);
+  }
+
   .experience-button + .sound-hint {
     grid-column: 2;
     grid-row: 7;
@@ -2031,9 +2043,9 @@
           <div class="athreix-mask"><span class="athreix-wordmark">Athreix</span></div>
         </div>
 
-        <button class="experience-button magnetic" id="beginExperience" type="button" aria-describedby="soundHint">
+        <button class="experience-button magnetic" id="beginExperience" type="button" aria-label="Launch the Madane studio experience" aria-describedby="soundHint">
           <span class="button-border" aria-hidden="true"></span>
-          <span class="button-label">Reveal the studio</span>
+          <span class="button-label">Launch studio</span>
           <span class="button-mark" aria-hidden="true"><i></i></span>
         </button>
         <p class="sound-hint" id="soundHint">Sound begins on reveal</p>
@@ -2063,8 +2075,6 @@
   <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomEase.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Flip.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/MotionPathPlugin.min.js"></script>
   <script>
   (() => {
     "use strict";
@@ -2932,6 +2942,42 @@
         safeFocus(this.button);
       }
 
+      presentImmediate(prelude) {
+        document.body.classList.add("is-running");
+        prelude.style.display = "none";
+        prelude.setAttribute("aria-hidden", "true");
+
+        if (!this.gsap) {
+          this.presentFallback(prelude);
+          return;
+        }
+
+        const titleTarget = this.curtainTitleSplit?.words || "#curtainTitle";
+        this.gsap.set(this.scene, { autoAlpha: 1 });
+        this.gsap.set(this.branding, { autoAlpha: 1, y: 0, scale: 1 });
+        this.gsap.set(
+          [
+            qs(".curtain-kicker", this.branding),
+            qs(".curtain-entity", this.branding),
+            qs(".curtain-tagline", this.branding),
+            qs(".athreix-lockup", this.branding),
+            this.button,
+            this.soundHint,
+            titleTarget,
+          ],
+          { autoAlpha: 1, y: 0, yPercent: 0 },
+        );
+        this.gsap.set(this.wordmark, { y: 0 });
+        this.gsap.set(this.rule, { scaleX: 1 });
+        this.gsap.set(".button-border", { clipPath: "inset(0 0% 0 0)" });
+        this.gsap.set("#dustCanvas", { autoAlpha: 0.28 });
+        this.gsap.set("#paperGrain", { autoAlpha: 0.18 });
+        this.gsap.set(".ambient-haze", { autoAlpha: 0.62 });
+        this.gsap.set("#spotlight", { autoAlpha: 0.62, scaleX: 1 });
+        this.gsap.set("#blueprintGrid", { autoAlpha: 0.18 });
+        this.activate();
+      }
+
       presentFallback(prelude) {
         prelude.style.display = "none";
         this.scene.style.visibility = "visible";
@@ -3404,16 +3450,14 @@
       const destination = experience.dataset.destination;
       const reducedMotion = prefersReducedMotion();
 
-      await Promise.all([waitForFonts(), waitForGlobal("gsap")]);
+      await waitForGlobal("gsap", 1200);
 
       const gsap = window.gsap || null;
       const CustomEase = window.CustomEase || null;
       const SplitText = window.SplitText || null;
-      const Flip = window.Flip || null;
-      const MotionPathPlugin = window.MotionPathPlugin || null;
 
       if (gsap) {
-        const plugins = [CustomEase, SplitText, Flip, MotionPathPlugin].filter(Boolean);
+        const plugins = [CustomEase, SplitText].filter(Boolean);
         if (plugins.length) gsap.registerPlugin(...plugins);
 
         if (CustomEase) {
@@ -3444,15 +3488,7 @@
         destination,
         reducedMotion,
       });
-      const prelude = new ArchitecturalPrelude({
-        gsap,
-        SplitText,
-        Flip,
-        MotionPathPlugin,
-        curtain,
-        reducedMotion,
-      });
-
+      const prelude = qs("#prelude");
       const beginButton = qs("#beginExperience");
       const enterNow = qs("#enterNow");
       const soundControl = qs("#soundControl");
@@ -3463,14 +3499,14 @@
       enterNow.href = destination;
       curtain.prepare();
       particles.init();
-      prelude.play();
+      curtain.presentImmediate(prelude);
 
       if (
         !reducedMotion &&
         window.matchMedia("(hover: hover) and (pointer: fine)").matches
       ) {
         const launchStage = qs("#launchStage");
-        const moveArchitecturalOrbit = rafThrottle((event) => {
+        const moveArchitecturalOrbit = createRafThrottle((event) => {
           const x = (event.clientX / window.innerWidth - 0.5) * 22;
           const y = (event.clientY / window.innerHeight - 0.5) * 16;
           launchStage.style.setProperty("--orbit-x", `${x.toFixed(2)}px`);
@@ -3489,17 +3525,28 @@
       window.addEventListener("pointerdown", unlockAmbientSound, { once: true, passive: true });
       window.addEventListener("keydown", unlockAmbientSound, { once: true });
 
-      beginButton.addEventListener(
-        "click",
-        async () => {
-          if (loadingStarted) return;
-          loadingStarted = true;
+      beginButton.addEventListener("click", async () => {
+        if (loadingStarted) return;
+        loadingStarted = true;
+        beginButton.classList.add("is-activating");
+        qs(".button-label", beginButton).textContent = "Opening studio";
+
+        let revealCompleted = false;
+        const revealSafetyTimer = window.setTimeout(() => {
+          if (!revealCompleted) window.location.assign(destination);
+        }, 4500);
+
+        try {
           await curtain.open();
+          revealCompleted = true;
+          window.clearTimeout(revealSafetyTimer);
           await loader.start();
           transition.go();
-        },
-        { once: true },
-      );
+        } catch {
+          window.clearTimeout(revealSafetyTimer);
+          window.location.assign(destination);
+        }
+      });
 
       enterNow.addEventListener("click", (event) => {
         event.preventDefault();
@@ -3523,6 +3570,8 @@
       const prelude = qs("#prelude");
       const scene = qs("#curtainScene");
       const branding = qs("#curtainBranding");
+      const beginButton = qs("#beginExperience");
+      const destination = qs("#experience")?.dataset.destination || "https://www.madane.in/";
       prelude.style.display = "none";
       scene.style.visibility = "visible";
       scene.style.opacity = "1";
@@ -3530,6 +3579,12 @@
       branding.style.visibility = "visible";
       scene.removeAttribute("inert");
       scene.setAttribute("aria-hidden", "false");
+      beginButton.disabled = false;
+      beginButton.addEventListener(
+        "click",
+        () => window.location.assign(destination),
+        { once: true },
+      );
     });
   })();
   </script>
