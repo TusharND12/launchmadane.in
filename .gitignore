@@ -1,0 +1,6 @@
+.cortex/
+.agents/
+.claude/
+CLAUDE.md
+html-server.log
+html-server-error.log

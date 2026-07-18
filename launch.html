@@ -1,0 +1,3198 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Enter the new digital studio of Madane Design Workshop LLP through a cinematic architectural launch experience by Athreix.">
+  <meta name="theme-color" content="#050505">
+  <meta name="color-scheme" content="dark">
+  <meta property="og:title" content="Madane Design Workshop LLP — The New Digital Studio">
+  <meta property="og:description" content="Every masterpiece starts with a single line. Enter the studio.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Madane Design Workshop LLP | Enter the Studio</title>
+
+  <script>document.documentElement.classList.replace("no-js", "js");</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet">
+
+  <style>
+  /* variables.css */
+  :root {
+    color-scheme: dark;
+
+    --ink: #000000;
+    --obsidian: #040404;
+    --graphite: #0a0a0a;
+    --charcoal: #121212;
+    --concrete: #1b1b1a;
+    --ash: #777774;
+    --silver: #b8b8b2;
+    --paper: #ecebe5;
+    --ivory: #f5f3ec;
+    --white: #ffffff;
+
+    --line-faint: rgba(245, 243, 236, 0.07);
+    --line-soft: rgba(245, 243, 236, 0.14);
+    --line-medium: rgba(245, 243, 236, 0.28);
+    --line-strong: rgba(245, 243, 236, 0.58);
+    --glass-fill: rgba(9, 9, 9, 0.62);
+    --glass-highlight: rgba(255, 255, 255, 0.09);
+
+    --font-display: "Cormorant Garamond", "Bodoni 72", Didot, "Times New Roman", serif;
+    --font-sans: "Manrope", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    --tracking-micro: 0.34em;
+    --tracking-label: 0.22em;
+    --tracking-body: 0.012em;
+
+    --page-gutter: clamp(20px, 4vw, 64px);
+    --safe-top: max(20px, env(safe-area-inset-top));
+    --safe-right: max(20px, env(safe-area-inset-right));
+    --safe-bottom: max(20px, env(safe-area-inset-bottom));
+    --safe-left: max(20px, env(safe-area-inset-left));
+
+    --ease-curtain: cubic-bezier(0.77, 0, 0.175, 1);
+    --ease-reveal: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-luxury: cubic-bezier(0.22, 1, 0.36, 1);
+
+    --z-atmosphere: 1;
+    --z-launch: 10;
+    --z-curtain: 20;
+    --z-prelude: 30;
+    --z-controls: 50;
+    --z-transition: 80;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    min-width: 320px;
+    min-height: 100%;
+    overflow: hidden;
+    background: var(--ink);
+  }
+
+  body {
+    min-width: 320px;
+    min-height: 100vh;
+    min-height: 100svh;
+    margin: 0;
+    overflow: hidden;
+    background: var(--ink);
+    color: var(--ivory);
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button {
+    border: 0;
+    color: inherit;
+    font: inherit;
+  }
+
+  button:focus-visible,
+  a:focus-visible {
+    outline: 1px solid var(--ivory);
+    outline-offset: 6px;
+  }
+
+  ::selection {
+    background: var(--ivory);
+    color: var(--ink);
+  }
+
+  .visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+  }
+
+  /* typography.css */
+  .quote-kicker,
+  .quote-axis,
+  .drawing-caption,
+  .launch-eyebrow,
+  .launch-coordinate,
+  .loader-copy,
+  .enter-now,
+  .curtain-kicker,
+  .curtain-entity,
+  .curtain-made-by,
+  .sound-hint,
+  .sound-control,
+  .transition-veil p {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+  }
+
+  .quote-kicker {
+    margin: 0 0 clamp(20px, 3vh, 34px);
+    color: rgba(245, 243, 236, 0.48);
+    font-size: clamp(0.58rem, 0.7vw, 0.68rem);
+    letter-spacing: var(--tracking-micro);
+  }
+
+  .quote-block {
+    margin: 0;
+  }
+
+  .quote-text {
+    max-width: 14ch;
+    margin: 0 auto;
+    color: var(--paper);
+    font-family: var(--font-display);
+    font-size: clamp(2.35rem, 5.6vw, 6.3rem);
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    line-height: 0.96;
+    text-wrap: balance;
+  }
+
+  .quote-axis {
+    color: rgba(245, 243, 236, 0.38);
+    font-size: clamp(0.5rem, 0.58vw, 0.6rem);
+  }
+
+  .drawing-caption {
+    color: rgba(245, 243, 236, 0.42);
+    font-size: clamp(0.48rem, 0.56vw, 0.58rem);
+  }
+
+  .curtain-kicker {
+    margin: 0 0 clamp(17px, 2.6vh, 27px);
+    color: rgba(245, 243, 236, 0.62);
+    font-size: clamp(0.55rem, 0.68vw, 0.66rem);
+    letter-spacing: var(--tracking-micro);
+  }
+
+  .curtain-client {
+    max-width: 13ch;
+    margin: 0 auto;
+    color: var(--ivory);
+    font-family: var(--font-display);
+    font-size: clamp(2.15rem, 4.5vw, 4.65rem);
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    line-height: 0.87;
+    text-wrap: balance;
+  }
+
+  .curtain-entity {
+    margin: 14px 0 0;
+    color: rgba(245, 243, 236, 0.44);
+    font-size: clamp(0.48rem, 0.57vw, 0.56rem);
+    letter-spacing: 0.3em;
+  }
+
+  .curtain-tagline {
+    margin: 0;
+    color: rgba(245, 243, 236, 0.86);
+    font-family: var(--font-display);
+    font-size: clamp(1.02rem, 1.35vw, 1.36rem);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+  }
+
+  .curtain-made-by {
+    margin: 0 0 8px;
+    color: rgba(245, 243, 236, 0.36);
+    font-size: 0.48rem;
+    letter-spacing: 0.32em;
+  }
+
+  .athreix-wordmark {
+    display: block;
+    color: var(--white);
+    font-family: var(--font-sans);
+    font-size: clamp(1.75rem, 3.3vw, 3.25rem);
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    line-height: 0.9;
+    text-indent: 0.28em;
+    text-transform: uppercase;
+  }
+
+  .sound-hint {
+    margin: 14px 0 0;
+    color: rgba(245, 243, 236, 0.32);
+    font-size: 0.47rem;
+    letter-spacing: 0.22em;
+  }
+
+  .launch-eyebrow {
+    margin: 0 0 clamp(22px, 3.3vh, 38px);
+    color: rgba(245, 243, 236, 0.58);
+    font-size: clamp(0.56rem, 0.68vw, 0.68rem);
+    letter-spacing: var(--tracking-micro);
+  }
+
+  .launch-title {
+    margin: 0;
+    color: var(--ivory);
+    font-family: var(--font-display);
+    font-size: clamp(3.6rem, 9.2vw, 10rem);
+    font-weight: 400;
+    letter-spacing: -0.052em;
+    line-height: 0.78;
+    text-wrap: balance;
+  }
+
+  .launch-description {
+    max-width: 610px;
+    margin: clamp(28px, 4.6vh, 48px) auto 0;
+    color: rgba(245, 243, 236, 0.58);
+    font-family: var(--font-display);
+    font-size: clamp(1.02rem, 1.45vw, 1.4rem);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    line-height: 1.55;
+    text-wrap: balance;
+  }
+
+  .launch-coordinate {
+    color: rgba(245, 243, 236, 0.28);
+    font-size: clamp(0.45rem, 0.55vw, 0.56rem);
+    letter-spacing: 0.25em;
+  }
+
+  .loader-copy {
+    color: rgba(245, 243, 236, 0.62);
+    font-size: clamp(0.5rem, 0.59vw, 0.6rem);
+    letter-spacing: 0.24em;
+  }
+
+  .loader-index {
+    color: rgba(245, 243, 236, 0.3);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .enter-now {
+    color: rgba(245, 243, 236, 0.4);
+    font-size: 0.52rem;
+    letter-spacing: 0.25em;
+    text-decoration: none;
+  }
+
+  .transition-veil p {
+    color: rgba(8, 8, 8, 0.58);
+    font-size: 0.54rem;
+    letter-spacing: 0.38em;
+  }
+
+  /* layout.css */
+  .experience {
+    position: fixed;
+    inset: 0;
+    isolation: isolate;
+    min-height: 100vh;
+    min-height: 100svh;
+    overflow: hidden;
+    background: var(--ink);
+  }
+
+  .atmosphere,
+  .prelude,
+  .launch-stage,
+  .curtain-scene,
+  .transition-veil {
+    position: fixed;
+    inset: 0;
+  }
+
+  .atmosphere {
+    z-index: var(--z-atmosphere);
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .prelude {
+    z-index: var(--z-prelude);
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .quote-scene {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: min(1080px, calc(100% - (2 * var(--page-gutter))));
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+  }
+
+  .quote-axis {
+    display: grid;
+    grid-template-columns: auto minmax(50px, 150px) auto;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: clamp(32px, 5.2vh, 58px);
+  }
+
+  .quote-axis i {
+    display: block;
+    width: 100%;
+    height: 1px;
+    overflow: hidden;
+    background: rgba(245, 243, 236, 0.2);
+    transform: scaleX(0);
+    transform-origin: left center;
+  }
+
+  .drawing-scene {
+    position: absolute;
+    inset: clamp(22px, 5vw, 70px);
+    display: grid;
+    place-items: center;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .architectural-sketch {
+    width: min(1100px, 92vw);
+    height: min(650px, 76svh);
+    overflow: visible;
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.035));
+  }
+
+  .architectural-sketch path {
+    fill: none;
+    vector-effect: non-scaling-stroke;
+  }
+
+  .construction-strokes path {
+    stroke: rgba(236, 235, 229, 0.13);
+    stroke-dasharray: 0.016 0.014;
+    stroke-dashoffset: 1;
+    stroke-width: 0.7;
+  }
+
+  .sketch-strokes path {
+    stroke: rgba(245, 243, 236, 0.72);
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.1;
+  }
+
+  .sketch-strokes path:nth-child(3n + 1) {
+    stroke: rgba(245, 243, 236, 0.54);
+    stroke-width: 0.8;
+  }
+
+  .wireframe-strokes {
+    opacity: 0;
+  }
+
+  .wireframe-strokes path {
+    stroke: rgba(245, 243, 236, 0.66);
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    stroke-linecap: square;
+    stroke-linejoin: miter;
+    stroke-width: 0.85;
+  }
+
+  .drafting-point {
+    fill: var(--ivory);
+    opacity: 0;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.65));
+  }
+
+  .drawing-caption {
+    position: absolute;
+    right: var(--safe-right);
+    bottom: var(--safe-bottom);
+    left: var(--safe-left);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 0;
+  }
+
+  .geometry-field {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: min(520px, 56vw);
+    aspect-ratio: 1.5;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+  }
+
+  .geometry-piece {
+    position: absolute;
+    display: block;
+    border: 1px solid rgba(245, 243, 236, 0.33);
+    background: rgba(245, 243, 236, 0.015);
+    box-shadow: inset 0 0 24px rgba(245, 243, 236, 0.025);
+    will-change: transform;
+  }
+
+  .geometry-piece--01 { top: 10%; left: 20%; width: 29%; height: 42%; }
+  .geometry-piece--02 { top: 20%; right: 13%; width: 36%; height: 30%; }
+  .geometry-piece--03 { bottom: 8%; left: 33%; width: 28%; height: 58%; }
+  .geometry-piece--04 { top: 33%; left: 4%; width: 34%; height: 35%; }
+  .geometry-piece--05 { right: 4%; bottom: 10%; width: 29%; height: 43%; }
+  .geometry-piece--06 { top: 2%; left: 47%; width: 18%; height: 31%; }
+
+  .geometry-field.is-composed .geometry-piece--01 { top: 8%; left: 34%; width: 32%; height: 84%; }
+  .geometry-field.is-composed .geometry-piece--02 { top: 8%; right: 2%; width: 31%; height: 40%; }
+  .geometry-field.is-composed .geometry-piece--03 { bottom: 8%; left: 2%; width: 31%; height: 40%; }
+  .geometry-field.is-composed .geometry-piece--04 { top: 8%; left: 2%; width: 31%; height: 40%; }
+  .geometry-field.is-composed .geometry-piece--05 { right: 2%; bottom: 8%; width: 31%; height: 40%; }
+  .geometry-field.is-composed .geometry-piece--06 { top: 37%; left: 42%; width: 16%; height: 26%; }
+
+  .launch-stage {
+    z-index: var(--z-launch);
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .launch-stage::before {
+    content: "";
+    position: absolute;
+    inset: clamp(12px, 1.6vw, 26px);
+    border: 1px solid rgba(245, 243, 236, 0.08);
+    pointer-events: none;
+  }
+
+  .launch-stage::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: min(74vw, 1040px);
+    height: min(74vw, 1040px);
+    border: 1px solid rgba(245, 243, 236, 0.045);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+  }
+
+  .launch-camera {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    min-height: 100%;
+    padding: clamp(92px, 13vh, 150px) var(--page-gutter) clamp(110px, 14vh, 160px);
+    will-change: transform, opacity, filter;
+  }
+
+  .launch-content {
+    position: relative;
+    z-index: 2;
+    width: min(1050px, 100%);
+    margin: auto;
+    text-align: center;
+  }
+
+  .launch-coordinate {
+    position: absolute;
+    right: calc(var(--page-gutter) + 10px);
+    left: calc(var(--page-gutter) + 10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+  }
+
+  .launch-coordinate--top {
+    top: calc(var(--safe-top) + 18px);
+  }
+
+  .launch-coordinate--bottom {
+    bottom: calc(var(--safe-bottom) + 18px);
+  }
+
+  .launch-coordinate i {
+    display: block;
+    width: clamp(25px, 4vw, 62px);
+    height: 1px;
+    background: rgba(245, 243, 236, 0.12);
+  }
+
+  .studio-loader {
+    width: min(480px, 100%);
+    margin: clamp(44px, 7vh, 78px) auto 0;
+  }
+
+  .loader-copy {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    min-height: 1.5em;
+    text-align: left;
+  }
+
+  .loader-label {
+    overflow: hidden;
+    text-align: right;
+  }
+
+  .loader-track {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 7px;
+    height: 6px;
+    margin-top: 16px;
+    overflow: hidden;
+  }
+
+  .loader-track > i {
+    display: block;
+    border-top: 1px solid rgba(245, 243, 236, 0.22);
+  }
+
+  .loader-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 1px;
+    background: var(--ivory);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.18);
+    transform: scaleX(0);
+    transform-origin: left center;
+  }
+
+  .loader-countdown {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 24px;
+    margin-top: 11px;
+    color: rgba(245, 243, 236, 0.34);
+    font-family: var(--font-sans);
+    font-size: clamp(0.46rem, 0.54vw, 0.54rem);
+    font-weight: 500;
+    letter-spacing: 0.23em;
+    text-transform: uppercase;
+  }
+
+  .loader-countdown-time {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+    min-width: 56px;
+    justify-content: flex-end;
+  }
+
+  .loader-countdown-value {
+    min-width: 1.2em;
+    color: rgba(245, 243, 236, 0.82);
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 1.8vw, 1.7rem);
+    font-variant-numeric: tabular-nums;
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    text-align: right;
+  }
+
+  .loader-countdown-unit {
+    font-size: 0.45rem;
+    font-style: normal;
+    letter-spacing: 0.18em;
+  }
+
+  .enter-now {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 22px;
+    transition: color 240ms ease;
+  }
+
+  .enter-now:hover {
+    color: var(--ivory);
+  }
+
+  .sound-control {
+    position: fixed;
+    z-index: var(--z-controls);
+    right: var(--safe-right);
+    bottom: var(--safe-bottom);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 0;
+    background: transparent;
+    color: rgba(245, 243, 236, 0.48);
+    cursor: pointer;
+    font-size: 0.48rem;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(8px);
+    transition: color 220ms ease;
+  }
+
+  .sound-control.is-visible {
+    pointer-events: auto;
+  }
+
+  .sound-control:hover {
+    color: var(--ivory);
+  }
+
+  .sound-bars {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    height: 15px;
+  }
+
+  .sound-bars i {
+    width: 1px;
+    height: 100%;
+    background: currentColor;
+    transform-origin: center bottom;
+  }
+
+  .sound-bars i:nth-child(1) { transform: scaleY(0.35); }
+  .sound-bars i:nth-child(2) { transform: scaleY(0.72); }
+  .sound-bars i:nth-child(3) { transform: scaleY(1); }
+  .sound-bars i:nth-child(4) { transform: scaleY(0.5); }
+
+  .sound-control[aria-pressed="true"] .sound-bars i {
+    transform: scaleY(0.16);
+  }
+
+  .transition-veil {
+    z-index: var(--z-transition);
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .transition-aperture {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10vmax;
+    height: 10vmax;
+    border-radius: 50%;
+    background: var(--ivory);
+    box-shadow: 0 0 8vmax rgba(255, 255, 255, 0.42);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.01);
+    will-change: transform, opacity;
+  }
+
+  .transition-veil p {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    opacity: 0;
+  }
+
+  .noscript-fallback {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: grid;
+    place-content: center;
+    padding: 30px;
+    background: var(--ink);
+    color: var(--ivory);
+    text-align: center;
+  }
+
+  .noscript-fallback p {
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  .noscript-fallback h1 {
+    margin: 20px 0 30px;
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 9vw, 8rem);
+    font-weight: 400;
+  }
+
+  .noscript-fallback a {
+    color: inherit;
+    text-underline-offset: 6px;
+  }
+
+  @media (max-width: 720px) {
+    .quote-axis {
+      grid-template-columns: auto minmax(32px, 70px) auto;
+      gap: 10px;
+    }
+
+    .drawing-scene {
+      inset: 16px;
+    }
+
+    .architectural-sketch {
+      width: 122vw;
+      max-width: none;
+      height: 70svh;
+    }
+
+    .geometry-field {
+      width: min(430px, 82vw);
+    }
+
+    .launch-camera {
+      padding-right: 24px;
+      padding-left: 24px;
+    }
+
+    .launch-description {
+      max-width: 36ch;
+    }
+
+    .launch-coordinate {
+      right: 30px;
+      left: 30px;
+    }
+
+    .launch-coordinate--top {
+      justify-content: space-between;
+    }
+
+    .launch-coordinate--bottom {
+      gap: 10px;
+    }
+
+    .launch-coordinate--bottom i {
+      width: 18px;
+    }
+
+    .drawing-caption {
+      right: 23px;
+      bottom: 22px;
+      left: 23px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .quote-axis span:last-child {
+      max-width: 17ch;
+      line-height: 1.5;
+      text-align: right;
+    }
+
+    .launch-coordinate--bottom span:nth-of-type(2),
+    .launch-coordinate--bottom i:nth-of-type(2) {
+      display: none;
+    }
+
+    .loader-copy {
+      gap: 18px;
+    }
+  }
+
+  @media (max-height: 650px) and (orientation: landscape) {
+    .quote-text {
+      font-size: clamp(2.2rem, 9vh, 4.2rem);
+    }
+
+    .quote-kicker {
+      margin-bottom: 14px;
+    }
+
+    .quote-axis {
+      margin-top: 20px;
+    }
+
+    .architectural-sketch {
+      width: min(840px, 82vw);
+      height: 78svh;
+    }
+
+    .launch-camera {
+      padding-top: 58px;
+      padding-bottom: 66px;
+    }
+
+    .launch-eyebrow {
+      margin-bottom: 16px;
+    }
+
+    .launch-title {
+      font-size: clamp(3.3rem, 14vh, 6.4rem);
+    }
+
+    .launch-description {
+      margin-top: 18px;
+      font-size: 0.98rem;
+      line-height: 1.35;
+    }
+
+    .studio-loader {
+      margin-top: 24px;
+    }
+
+    .enter-now {
+      margin-top: 15px;
+    }
+  }
+
+  /* particles.css */
+  .atmosphere {
+    background: #000;
+  }
+
+  .dust-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+
+  .ambient-haze {
+    position: absolute;
+    width: 58vw;
+    height: 58vw;
+    min-width: 520px;
+    min-height: 520px;
+    border-radius: 50%;
+    opacity: 0;
+    filter: blur(90px);
+    will-change: transform, opacity;
+  }
+
+  .ambient-haze--left {
+    top: -30vw;
+    left: -26vw;
+    background: radial-gradient(circle, rgba(224, 221, 210, 0.075), rgba(0, 0, 0, 0) 67%);
+  }
+
+  .ambient-haze--right {
+    right: -30vw;
+    bottom: -34vw;
+    background: radial-gradient(circle, rgba(224, 221, 210, 0.055), rgba(0, 0, 0, 0) 68%);
+  }
+
+  .spotlight {
+    position: absolute;
+    top: -34vh;
+    left: 50%;
+    width: min(88vw, 1150px);
+    height: 118vh;
+    opacity: 0;
+    background: radial-gradient(ellipse at 50% 24%, rgba(246, 243, 230, 0.13) 0%, rgba(246, 243, 230, 0.035) 30%, rgba(0, 0, 0, 0) 67%);
+    filter: blur(8px);
+    transform: translateX(-50%) scaleX(0.58);
+    transform-origin: 50% 0;
+    will-change: transform, opacity;
+  }
+
+  .blueprint-grid {
+    position: absolute;
+    inset: -6%;
+    opacity: 0;
+    background-image:
+      linear-gradient(rgba(236, 235, 229, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(236, 235, 229, 0.035) 1px, transparent 1px),
+      linear-gradient(rgba(236, 235, 229, 0.012) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(236, 235, 229, 0.012) 1px, transparent 1px);
+    background-position: center;
+    background-size: 96px 96px, 96px 96px, 24px 24px, 24px 24px;
+    -webkit-mask-image: radial-gradient(ellipse at center, #000 0%, rgba(0, 0, 0, 0.76) 43%, transparent 78%);
+    mask-image: radial-gradient(ellipse at center, #000 0%, rgba(0, 0, 0, 0.76) 43%, transparent 78%);
+    transform: perspective(900px) rotateX(0.01deg) scale(1.04);
+    transform-origin: center center;
+    will-change: transform, opacity;
+  }
+
+  .paper-grain {
+    position: absolute;
+    inset: -50%;
+    width: 200%;
+    height: 200%;
+    opacity: 0;
+    background-position: 0 0;
+    background-repeat: repeat;
+    mix-blend-mode: soft-light;
+    pointer-events: none;
+    will-change: transform, opacity;
+  }
+
+  .light-seam {
+    position: absolute;
+    z-index: 3;
+    top: -5%;
+    bottom: -5%;
+    left: 50%;
+    width: 2px;
+    opacity: 0;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow:
+      0 0 14px rgba(255, 255, 255, 0.76),
+      0 0 70px 12px rgba(255, 255, 255, 0.14),
+      0 0 180px 50px rgba(255, 255, 255, 0.055);
+    transform: translateX(-50%) scaleY(0.1);
+    transform-origin: center center;
+    will-change: transform, opacity;
+  }
+
+  .light-bloom {
+    position: absolute;
+    z-index: 4;
+    top: 50%;
+    left: 50%;
+    width: 36vmax;
+    height: 36vmax;
+    border-radius: 50%;
+    opacity: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.34) 0%, rgba(255, 255, 255, 0.08) 30%, rgba(255, 255, 255, 0) 71%);
+    filter: blur(12px);
+    transform: translate(-50%, -50%) scale(0.05);
+    will-change: transform, opacity;
+  }
+
+  @media (max-width: 720px) {
+    .spotlight {
+      width: 140vw;
+      height: 105vh;
+    }
+
+    .blueprint-grid {
+      background-size: 72px 72px, 72px 72px, 18px 18px, 18px 18px;
+    }
+
+    .ambient-haze {
+      filter: blur(68px);
+    }
+  }
+
+  /* curtain.css */
+  .curtain-scene {
+    z-index: var(--z-curtain);
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    perspective: 1200px;
+    transform-style: preserve-3d;
+  }
+
+  .curtain-panel {
+    position: absolute;
+    top: -2%;
+    bottom: -4%;
+    width: calc(50% + 12px);
+    overflow: hidden;
+    background: #070707;
+    box-shadow:
+      inset 0 -70px 100px rgba(0, 0, 0, 0.78),
+      0 0 80px rgba(0, 0, 0, 0.9);
+    transform-origin: center top;
+    transform-style: preserve-3d;
+    will-change: transform, filter;
+  }
+
+  .curtain-panel--left {
+    left: -7px;
+    transform-origin: left top;
+  }
+
+  .curtain-panel--right {
+    right: -7px;
+    transform-origin: right top;
+  }
+
+  .curtain-fabric {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    background:
+      linear-gradient(90deg,
+        #020202 0%, #151515 5%, #050505 11%, #232323 17%,
+        #060606 24%, #181818 31%, #030303 39%, #252525 47%,
+        #050505 56%, #1d1d1d 64%, #030303 73%, #202020 82%,
+        #050505 91%, #171717 96%, #020202 100%);
+    box-shadow:
+      inset 0 0 110px rgba(0, 0, 0, 0.82),
+      inset 0 28px 42px rgba(255, 255, 255, 0.025);
+    will-change: transform;
+  }
+
+  .curtain-fabric::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.055) 0%, transparent 18%, transparent 64%, rgba(0, 0, 0, 0.76) 100%),
+      repeating-linear-gradient(92deg, transparent 0 7%, rgba(255, 255, 255, 0.014) 8%, transparent 11%);
+    mix-blend-mode: screen;
+    opacity: 0.66;
+  }
+
+  .curtain-fabric::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.008) 0 1px, rgba(0, 0, 0, 0.018) 1px 3px);
+    mix-blend-mode: overlay;
+    opacity: 0.65;
+  }
+
+  .curtain-fold {
+    position: absolute;
+    top: -4%;
+    bottom: -8%;
+    width: 22%;
+    border-radius: 48% 52% 42% 58% / 4% 4% 96% 96%;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.09) 42%, rgba(0, 0, 0, 0.68));
+    filter: blur(0.25px);
+    opacity: 0.62;
+    transform-origin: center top;
+    will-change: transform;
+  }
+
+  .curtain-fold:nth-child(1) { left: -8%; transform: rotate(0.5deg) scaleX(0.9); }
+  .curtain-fold:nth-child(2) { left: 11%; transform: rotate(-0.7deg) scaleX(1.06); }
+  .curtain-fold:nth-child(3) { left: 30%; transform: rotate(0.35deg) scaleX(0.86); }
+  .curtain-fold:nth-child(4) { left: 49%; transform: rotate(-0.45deg) scaleX(1.08); }
+  .curtain-fold:nth-child(5) { left: 68%; transform: rotate(0.5deg) scaleX(0.9); }
+  .curtain-fold:nth-child(6) { left: 87%; transform: rotate(-0.6deg) scaleX(1.04); }
+
+  .curtain-panel--right .curtain-fabric {
+    transform: scaleX(-1);
+  }
+
+  .curtain-leading-edge {
+    position: absolute;
+    top: -2%;
+    bottom: -2%;
+    width: 34px;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.96), rgba(255, 255, 255, 0.12) 47%, rgba(0, 0, 0, 0.96));
+    box-shadow:
+      0 0 14px rgba(0, 0, 0, 0.98),
+      0 0 42px rgba(0, 0, 0, 0.68);
+    opacity: 0.88;
+  }
+
+  .curtain-panel--left .curtain-leading-edge {
+    right: -17px;
+  }
+
+  .curtain-panel--right .curtain-leading-edge {
+    left: -17px;
+  }
+
+  .curtain-valance {
+    position: absolute;
+    z-index: 3;
+    top: -2px;
+    right: -2%;
+    left: -2%;
+    height: clamp(82px, 13vh, 145px);
+    overflow: hidden;
+    background:
+      linear-gradient(180deg, #1b1b1b 0%, #080808 62%, #010101 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.11);
+    border-radius: 0 0 50% 50% / 0 0 32% 32%;
+    box-shadow:
+      0 24px 50px rgba(0, 0, 0, 0.9),
+      inset 0 -18px 30px rgba(0, 0, 0, 0.9),
+      inset 0 8px 18px rgba(255, 255, 255, 0.035);
+    transform-origin: center top;
+    will-change: transform, opacity;
+  }
+
+  .curtain-valance::after {
+    content: "";
+    position: absolute;
+    right: 9%;
+    bottom: 12px;
+    left: 9%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  }
+
+  .curtain-valance i {
+    position: absolute;
+    top: -12%;
+    bottom: -40%;
+    width: 18%;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.065), rgba(0, 0, 0, 0.55) 65%);
+  }
+
+  .curtain-valance i:nth-child(1) { left: -3%; }
+  .curtain-valance i:nth-child(2) { left: 12%; }
+  .curtain-valance i:nth-child(3) { left: 27%; }
+  .curtain-valance i:nth-child(4) { left: 42%; }
+  .curtain-valance i:nth-child(5) { left: 57%; }
+  .curtain-valance i:nth-child(6) { left: 72%; }
+  .curtain-valance i:nth-child(7) { left: 87%; }
+
+  .curtain-branding {
+    position: absolute;
+    z-index: 5;
+    top: 50%;
+    left: 50%;
+    width: min(650px, calc(100% - 40px));
+    max-height: none;
+    overflow: visible;
+    padding: clamp(34px, 5.5vh, 62px) clamp(25px, 5.4vw, 68px) clamp(31px, 5vh, 56px);
+    text-align: center;
+    transform: translate(-50%, -50%);
+    will-change: transform, opacity, filter;
+  }
+
+  .curtain-rule {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: min(310px, 72%);
+    height: 1px;
+    margin: clamp(24px, 3.7vh, 38px) auto clamp(22px, 3.4vh, 34px);
+    overflow: hidden;
+    background: linear-gradient(90deg, transparent, rgba(245, 243, 236, 0.18), transparent);
+  }
+
+  .curtain-rule span {
+    display: block;
+    width: 42%;
+    height: 1px;
+    background: rgba(245, 243, 236, 0.68);
+    transform: scaleX(0);
+  }
+
+  .athreix-lockup {
+    margin-top: clamp(22px, 3.7vh, 38px);
+  }
+
+  .athreix-mask {
+    overflow: hidden;
+    padding: 4px 0 7px;
+  }
+
+  .athreix-wordmark {
+    transform: translateY(115%);
+  }
+
+  .experience-button {
+    position: relative;
+    display: inline-grid;
+    grid-template-columns: 1fr 36px;
+    align-items: center;
+    width: min(326px, 100%);
+    min-height: 58px;
+    margin-top: clamp(27px, 4.2vh, 44px);
+    padding: 0 9px 0 23px;
+    background: rgba(245, 243, 236, 0.93);
+    color: #070707;
+    cursor: pointer;
+    font-size: clamp(0.56rem, 0.64vw, 0.64rem);
+    font-weight: 600;
+    letter-spacing: 0.23em;
+    text-align: left;
+    text-transform: uppercase;
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  .button-border {
+    position: absolute;
+    inset: -5px;
+    border: 1px solid rgba(245, 243, 236, 0.24);
+    clip-path: inset(0 100% 0 0);
+    pointer-events: none;
+  }
+
+  .button-mark {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-left: 1px solid rgba(0, 0, 0, 0.16);
+  }
+
+  .button-mark i {
+    position: relative;
+    display: block;
+    width: 14px;
+    height: 1px;
+    background: currentColor;
+    transition: transform 400ms var(--ease-luxury);
+  }
+
+  .button-mark i::after {
+    content: "";
+    position: absolute;
+    top: -3px;
+    right: 0;
+    width: 6px;
+    height: 6px;
+    border-top: 1px solid currentColor;
+    border-right: 1px solid currentColor;
+    transform: rotate(45deg);
+  }
+
+  .experience-button:hover .button-mark i {
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 720px) {
+    .curtain-panel {
+      width: calc(50% + 8px);
+    }
+
+    .curtain-leading-edge {
+      width: 24px;
+    }
+
+    .curtain-panel--left .curtain-leading-edge {
+      right: -12px;
+    }
+
+    .curtain-panel--right .curtain-leading-edge {
+      left: -12px;
+    }
+
+    .curtain-branding {
+      width: calc(100% - 28px);
+    }
+  }
+
+  @media (max-height: 720px) {
+    .curtain-valance {
+      height: 74px;
+    }
+
+    .curtain-branding {
+      padding-top: 25px;
+      padding-bottom: 22px;
+    }
+
+    .curtain-kicker {
+      margin-bottom: 13px;
+    }
+
+    .curtain-client {
+      font-size: clamp(2rem, 8vh, 3.25rem);
+    }
+
+    .curtain-entity {
+      margin-top: 8px;
+    }
+
+    .curtain-rule {
+      margin-top: 16px;
+      margin-bottom: 14px;
+    }
+
+    .athreix-lockup {
+      margin-top: 15px;
+    }
+
+    .athreix-wordmark {
+      font-size: clamp(1.6rem, 5.5vh, 2.5rem);
+    }
+
+    .experience-button {
+      min-height: 50px;
+      margin-top: 18px;
+    }
+
+    .sound-hint {
+      margin-top: 9px;
+    }
+  }
+
+  @media (max-height: 520px) and (orientation: landscape) {
+    .curtain-branding {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(250px, 0.8fr);
+      column-gap: 36px;
+      align-items: center;
+      width: min(880px, calc(100% - 34px));
+      padding: 20px 38px;
+    }
+
+    .curtain-kicker,
+    .curtain-client,
+    .curtain-entity,
+    .curtain-rule,
+    .curtain-tagline {
+      grid-column: 1;
+    }
+
+    .athreix-lockup,
+    .experience-button,
+    .sound-hint {
+      grid-column: 2;
+    }
+
+    .curtain-kicker { margin-bottom: 9px; }
+    .curtain-client { font-size: clamp(2rem, 8.5vh, 3.1rem); }
+    .curtain-rule { margin-top: 11px; margin-bottom: 9px; }
+    .athreix-lockup { grid-row: 1 / 3; margin-top: 0; }
+    .experience-button { grid-row: 3 / 6; align-self: center; margin-top: 26px; }
+    .sound-hint { grid-row: 6; margin-top: -10px; }
+  }
+
+  /* glass.css */
+  .glass-card {
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .glass-card::before,
+  .glass-card::after {
+    display: none;
+  }
+
+  .glass-reflection {
+    display: none;
+  }
+
+  .glass-corner {
+    display: none;
+  }
+
+  .glass-corner--tl {
+    top: 10px;
+    left: 10px;
+    border-top: 1px solid rgba(245, 243, 236, 0.52);
+    border-left: 1px solid rgba(245, 243, 236, 0.52);
+  }
+
+  .glass-corner--tr {
+    top: 10px;
+    right: 10px;
+    border-top: 1px solid rgba(245, 243, 236, 0.22);
+    border-right: 1px solid rgba(245, 243, 236, 0.22);
+  }
+
+  .glass-corner--bl {
+    bottom: 10px;
+    left: 10px;
+    border-bottom: 1px solid rgba(245, 243, 236, 0.22);
+    border-left: 1px solid rgba(245, 243, 236, 0.22);
+  }
+
+  .glass-corner--br {
+    right: 10px;
+    bottom: 10px;
+    border-right: 1px solid rgba(245, 243, 236, 0.52);
+    border-bottom: 1px solid rgba(245, 243, 236, 0.52);
+  }
+
+  @supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+    .glass-card {
+      background: transparent;
+    }
+  }
+
+  /* animations.css */
+  @keyframes grain-drift {
+    0% { transform: translate3d(-2%, -3%, 0); }
+    20% { transform: translate3d(3%, 1%, 0); }
+    40% { transform: translate3d(-1%, 4%, 0); }
+    60% { transform: translate3d(4%, -2%, 0); }
+    80% { transform: translate3d(-3%, 2%, 0); }
+    100% { transform: translate3d(2%, -4%, 0); }
+  }
+
+  @keyframes haze-drift-left {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(7vw, 5vh, 0) scale(1.08); }
+  }
+
+  @keyframes haze-drift-right {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1.05); }
+    50% { transform: translate3d(-6vw, -4vh, 0) scale(0.96); }
+  }
+
+  @keyframes grid-breathe {
+    0%, 100% { transform: perspective(900px) rotateX(0.01deg) scale(1.035); }
+    50% { transform: perspective(900px) rotateX(0.01deg) scale(1.055) translate3d(0, -0.35%, 0); }
+  }
+
+  @keyframes camera-breathe {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+  }
+
+  @keyframes sound-wave-1 {
+    0%, 100% { transform: scaleY(0.28); }
+    50% { transform: scaleY(0.86); }
+  }
+
+  @keyframes sound-wave-2 {
+    0%, 100% { transform: scaleY(0.72); }
+    45% { transform: scaleY(0.32); }
+  }
+
+  body.is-running .paper-grain {
+    animation: grain-drift 900ms steps(2, end) infinite;
+  }
+
+  body.is-running .ambient-haze--left {
+    animation: haze-drift-left 18s ease-in-out infinite;
+  }
+
+  body.is-running .ambient-haze--right {
+    animation: haze-drift-right 22s ease-in-out infinite;
+  }
+
+  body.is-blueprint .blueprint-grid {
+    animation: grid-breathe 14s ease-in-out infinite;
+  }
+
+  body.is-launching .launch-camera {
+    animation: camera-breathe 13s ease-in-out infinite;
+  }
+
+  .sound-control.is-visible:not([aria-pressed="true"]) .sound-bars i:nth-child(1),
+  .sound-control.is-visible:not([aria-pressed="true"]) .sound-bars i:nth-child(3) {
+    animation: sound-wave-1 1.1s ease-in-out infinite;
+  }
+
+  .sound-control.is-visible:not([aria-pressed="true"]) .sound-bars i:nth-child(2),
+  .sound-control.is-visible:not([aria-pressed="true"]) .sound-bars i:nth-child(4) {
+    animation: sound-wave-2 1.35s ease-in-out infinite;
+  }
+
+  .sound-control.is-visible:not([aria-pressed="true"]) .sound-bars i:nth-child(3) {
+    animation-delay: -420ms;
+  }
+
+  .sound-control.is-visible:not([aria-pressed="true"]) .sound-bars i:nth-child(4) {
+    animation-delay: -270ms;
+  }
+
+  body.is-transitioning,
+  body.is-transitioning * {
+    cursor: wait !important;
+  }
+
+  @media (hover: none), (pointer: coarse) {
+    .magnetic {
+      transform: none !important;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      transition-delay: 0ms !important;
+    }
+
+    .dust-canvas,
+    .paper-grain,
+    .ambient-haze,
+    .drafting-point {
+      display: none;
+    }
+  }
+  </style>
+</head>
+
+<body>
+  <main
+    class="experience"
+    id="experience"
+    data-destination="https://www.madane.in/"
+  >
+    <div class="atmosphere" aria-hidden="true">
+      <canvas class="dust-canvas" id="dustCanvas"></canvas>
+      <div class="ambient-haze ambient-haze--left"></div>
+      <div class="ambient-haze ambient-haze--right"></div>
+      <div class="spotlight" id="spotlight"></div>
+      <div class="blueprint-grid" id="blueprintGrid"></div>
+      <div class="paper-grain" id="paperGrain"></div>
+      <div class="light-seam" id="lightSeam"></div>
+      <div class="light-bloom" id="lightBloom"></div>
+    </div>
+
+    <section class="prelude" id="prelude" aria-label="Architectural prelude">
+      <div class="quote-scene" id="quoteScene">
+        <p class="quote-kicker">A meditation on space</p>
+        <blockquote class="quote-block">
+          <p class="quote-text" id="quoteText">Every masterpiece starts with a single line.</p>
+        </blockquote>
+        <div class="quote-axis" aria-hidden="true">
+          <span>01</span>
+          <i></i>
+          <span>Imagination&nbsp;&nbsp;—&nbsp;&nbsp;Precision</span>
+        </div>
+      </div>
+
+      <div class="drawing-scene" id="drawingScene" aria-hidden="true">
+        <svg
+          class="architectural-sketch"
+          id="architecturalSketch"
+          viewBox="0 0 1200 700"
+          role="img"
+          aria-labelledby="sketchTitle sketchDescription"
+        >
+          <title id="sketchTitle">An architectural concept taking form</title>
+          <desc id="sketchDescription">Fine pencil lines draw a perspective study before resolving into a geometric composition.</desc>
+
+          <g class="construction-strokes" id="constructionStrokes">
+            <path pathLength="1" d="M68 582 L1137 582"></path>
+            <path pathLength="1" d="M600 80 L600 642"></path>
+            <path pathLength="1" d="M107 626 L1075 122"></path>
+            <path pathLength="1" d="M1128 626 L166 122"></path>
+            <path pathLength="1" d="M254 210 L946 210"></path>
+            <path pathLength="1" d="M206 430 L994 430"></path>
+          </g>
+
+          <g class="sketch-strokes" id="sketchStrokes">
+            <path id="primarySketchPath" pathLength="1" d="M279 540 L279 282 L478 169 L858 273 L858 540 Z"></path>
+            <path pathLength="1" d="M279 282 L649 351 L858 273"></path>
+            <path pathLength="1" d="M649 351 L649 540"></path>
+            <path pathLength="1" d="M478 169 L649 351"></path>
+            <path pathLength="1" d="M342 311 L342 500 L542 520 L542 348 Z"></path>
+            <path pathLength="1" d="M385 319 L385 504"></path>
+            <path pathLength="1" d="M430 328 L430 509"></path>
+            <path pathLength="1" d="M478 337 L478 514"></path>
+            <path pathLength="1" d="M693 352 L693 501 L813 485 L813 316 Z"></path>
+            <path pathLength="1" d="M733 342 L733 496"></path>
+            <path pathLength="1" d="M774 329 L774 491"></path>
+            <path pathLength="1" d="M279 540 L649 601 L858 540"></path>
+            <path pathLength="1" d="M649 540 L649 601"></path>
+            <path pathLength="1" d="M253 562 L649 630 L884 561"></path>
+            <path pathLength="1" d="M330 261 L472 191 L814 278"></path>
+            <path pathLength="1" d="M309 294 L472 207 L838 294"></path>
+            <path pathLength="1" d="M543 348 L649 376 L693 352"></path>
+            <path pathLength="1" d="M542 430 L649 446 L693 430"></path>
+            <path pathLength="1" d="M560 523 L560 450 L622 458 L622 534"></path>
+          </g>
+
+          <g class="wireframe-strokes" id="wireframeStrokes">
+            <path pathLength="1" d="M388 493 L388 272 L560 187 L810 283 L810 493 Z"></path>
+            <path pathLength="1" d="M388 272 L624 337 L810 283"></path>
+            <path pathLength="1" d="M624 337 L624 493"></path>
+            <path pathLength="1" d="M560 187 L624 337"></path>
+            <path pathLength="1" d="M388 493 L624 554 L810 493"></path>
+            <path pathLength="1" d="M438 285 L438 506 M488 299 L488 519 M538 312 L538 532"></path>
+            <path pathLength="1" d="M674 322 L674 535 M720 308 L720 521 M765 295 L765 507"></path>
+            <path pathLength="1" d="M388 346 L624 400 L810 350 M388 420 L624 463 L810 420"></path>
+          </g>
+
+          <circle class="drafting-point" id="draftingPoint" r="3.5" cx="0" cy="0"></circle>
+        </svg>
+
+        <div class="drawing-caption" id="drawingCaption">
+          <span>Concept study</span>
+          <span>MDW / Spatial System 01</span>
+        </div>
+
+        <div class="geometry-field" id="geometryField" aria-hidden="true">
+          <span class="geometry-piece geometry-piece--01" data-flip-id="form-01"></span>
+          <span class="geometry-piece geometry-piece--02" data-flip-id="form-02"></span>
+          <span class="geometry-piece geometry-piece--03" data-flip-id="form-03"></span>
+          <span class="geometry-piece geometry-piece--04" data-flip-id="form-04"></span>
+          <span class="geometry-piece geometry-piece--05" data-flip-id="form-05"></span>
+          <span class="geometry-piece geometry-piece--06" data-flip-id="form-06"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="launch-stage" id="launchStage" aria-labelledby="launchTitle" aria-hidden="true" inert>
+      <div class="launch-camera" id="launchCamera">
+        <div class="launch-coordinate launch-coordinate--top" aria-hidden="true">
+          <span>19.0760° N</span>
+          <i></i>
+          <span>72.8777° E</span>
+        </div>
+
+        <div class="launch-content">
+          <p class="launch-eyebrow">Madane Design Workshop LLP</p>
+          <h2 class="launch-title" id="launchTitle" tabindex="-1">The studio is live.</h2>
+          <p class="launch-description">Thought becomes line. Line becomes space. Enter the new digital home of an architecture practice shaped by precision and possibility.</p>
+
+          <div class="studio-loader" id="studioLoader" role="status" aria-live="polite" aria-atomic="true">
+            <div class="loader-copy">
+              <span class="loader-index" id="loaderIndex">01</span>
+              <span class="loader-label" id="loaderLabel">Preparing experience</span>
+            </div>
+            <div class="loader-track" aria-hidden="true">
+              <span class="loader-progress" id="loaderProgress"></span>
+              <i></i><i></i><i></i><i></i><i></i>
+            </div>
+            <div class="loader-countdown" aria-hidden="true">
+              <span>Automatic entry</span>
+              <span class="loader-countdown-time">
+                <strong class="loader-countdown-value" id="countdownValue">10</strong>
+                <em class="loader-countdown-unit">sec</em>
+              </span>
+            </div>
+          </div>
+
+          <a class="enter-now" id="enterNow" href="https://www.madane.in/">
+            <span>Enter now</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <div class="launch-coordinate launch-coordinate--bottom" aria-hidden="true">
+          <span>Architecture</span>
+          <i></i>
+          <span>Interiors</span>
+          <i></i>
+          <span>Design + Build</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="curtain-scene" id="curtainScene" aria-label="Madane Design Workshop launch curtain" aria-hidden="true" inert>
+      <div class="curtain-panel curtain-panel--left" id="curtainLeft" aria-hidden="true">
+        <div class="curtain-fabric">
+          <i class="curtain-fold"></i><i class="curtain-fold"></i><i class="curtain-fold"></i>
+          <i class="curtain-fold"></i><i class="curtain-fold"></i><i class="curtain-fold"></i>
+        </div>
+        <div class="curtain-leading-edge"></div>
+      </div>
+      <div class="curtain-panel curtain-panel--right" id="curtainRight" aria-hidden="true">
+        <div class="curtain-fabric">
+          <i class="curtain-fold"></i><i class="curtain-fold"></i><i class="curtain-fold"></i>
+          <i class="curtain-fold"></i><i class="curtain-fold"></i><i class="curtain-fold"></i>
+        </div>
+        <div class="curtain-leading-edge"></div>
+      </div>
+      <div class="curtain-valance" id="curtainValance" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+
+      <div class="curtain-branding glass-card" id="curtainBranding">
+        <div class="glass-reflection" aria-hidden="true"></div>
+        <span class="glass-corner glass-corner--tl" aria-hidden="true"></span>
+        <span class="glass-corner glass-corner--tr" aria-hidden="true"></span>
+        <span class="glass-corner glass-corner--bl" aria-hidden="true"></span>
+        <span class="glass-corner glass-corner--br" aria-hidden="true"></span>
+
+        <p class="curtain-kicker">The new digital studio</p>
+        <h1 class="curtain-client" id="curtainTitle">Madane Design Workshop</h1>
+        <p class="curtain-entity">Limited Liability Partnership</p>
+        <div class="curtain-rule" aria-hidden="true"><span></span></div>
+        <p class="curtain-tagline">Your thought. Our skill.</p>
+
+        <div class="athreix-lockup" aria-label="An experience by Athreix">
+          <p class="curtain-made-by">An experience by</p>
+          <div class="athreix-mask"><span class="athreix-wordmark">Athreix</span></div>
+        </div>
+
+        <button class="experience-button magnetic" id="beginExperience" type="button" aria-describedby="soundHint">
+          <span class="button-border" aria-hidden="true"></span>
+          <span class="button-label">Begin experience</span>
+          <span class="button-mark" aria-hidden="true"><i></i></span>
+        </button>
+        <p class="sound-hint" id="soundHint">Sound joins after interaction</p>
+      </div>
+    </section>
+
+    <button class="sound-control" id="soundControl" type="button" aria-label="Mute sound" aria-pressed="false" disabled>
+      <span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span class="sound-control-label">Sound</span>
+      <span class="visually-hidden" id="soundStatus">Sound is on</span>
+    </button>
+
+    <div class="transition-veil" id="transitionVeil" aria-hidden="true">
+      <div class="transition-aperture"></div>
+      <p>Entering studio</p>
+    </div>
+  </main>
+
+  <noscript>
+    <div class="noscript-fallback">
+      <p>Madane Design Workshop LLP</p>
+      <h1>The studio is live.</h1>
+      <a href="https://www.madane.in/">Enter the website</a>
+    </div>
+  </noscript>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomEase.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Flip.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/MotionPathPlugin.min.js"></script>
+  <script>
+  (() => {
+    "use strict";
+
+      /* utils.js */
+    const qs = (selector, scope = document) => scope.querySelector(selector);
+    const qsa = (selector, scope = document) => [...scope.querySelectorAll(selector)];
+
+    const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+    const lerp = (start, end, amount) => start + (end - start) * amount;
+    const randomBetween = (min, max) => min + Math.random() * (max - min);
+
+    const prefersReducedMotion = () =>
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function setInteractive(element, interactive) {
+      if (!element) return;
+
+      if (interactive) {
+        element.removeAttribute("inert");
+        element.setAttribute("aria-hidden", "false");
+        return;
+      }
+
+      element.setAttribute("inert", "");
+      element.setAttribute("aria-hidden", "true");
+    }
+
+    function waitForFonts(timeout = 1800) {
+      if (!document.fonts?.ready) return Promise.resolve();
+
+      return Promise.race([
+        document.fonts.ready,
+        new Promise((resolve) => window.setTimeout(resolve, timeout)),
+      ]);
+    }
+
+    function waitForGlobal(name, timeout = 4500) {
+      if (window[name]) return Promise.resolve(window[name]);
+
+      return new Promise((resolve) => {
+        const startedAt = performance.now();
+
+        const check = () => {
+          if (window[name]) {
+            resolve(window[name]);
+            return;
+          }
+
+          if (performance.now() - startedAt >= timeout) {
+            resolve(null);
+            return;
+          }
+
+          window.requestAnimationFrame(check);
+        };
+
+        check();
+      });
+    }
+
+    function createRafThrottle(callback) {
+      let frame = 0;
+      let latestArgs = [];
+
+      return (...args) => {
+        latestArgs = args;
+        if (frame) return;
+
+        frame = window.requestAnimationFrame(() => {
+          frame = 0;
+          callback(...latestArgs);
+        });
+      };
+    }
+
+    function safeFocus(element) {
+      if (!element) return;
+
+      try {
+        element.focus({ preventScroll: true });
+      } catch {
+        element.focus();
+      }
+    }
+
+      /* particles.js */
+    class DustField {
+      constructor(canvas, { reducedMotion = false } = {}) {
+        this.canvas = canvas;
+        this.context = canvas?.getContext("2d", { alpha: true });
+        this.reducedMotion = reducedMotion;
+        this.particles = [];
+        this.burstParticles = [];
+        this.frame = 0;
+        this.running = false;
+        this.lastTime = performance.now();
+        this.pointer = { x: 0, y: 0, targetX: 0, targetY: 0 };
+        this.abortController = new AbortController();
+
+        this.resize = this.resize.bind(this);
+        this.render = this.render.bind(this);
+        this.handlePointer = this.handlePointer.bind(this);
+        this.handleVisibility = this.handleVisibility.bind(this);
+      }
+
+      init() {
+        if (!this.canvas || !this.context || this.reducedMotion) return;
+
+        this.resize();
+        this.createParticles();
+        window.addEventListener("resize", this.resize, {
+          passive: true,
+          signal: this.abortController.signal,
+        });
+        window.addEventListener("pointermove", this.handlePointer, {
+          passive: true,
+          signal: this.abortController.signal,
+        });
+        document.addEventListener("visibilitychange", this.handleVisibility, {
+          signal: this.abortController.signal,
+        });
+        this.start();
+      }
+
+      resize() {
+        if (!this.canvas || !this.context) return;
+
+        this.width = window.innerWidth;
+        this.height = window.innerHeight;
+        this.dpr = clamp(window.devicePixelRatio || 1, 1, 1.5);
+        this.canvas.width = Math.round(this.width * this.dpr);
+        this.canvas.height = Math.round(this.height * this.dpr);
+        this.canvas.style.width = `${this.width}px`;
+        this.canvas.style.height = `${this.height}px`;
+        this.context.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
+
+        if (this.particles.length) this.createParticles();
+      }
+
+      createParticles() {
+        const density = this.width < 720 ? 28 : 52;
+        this.particles = Array.from({ length: density }, () => this.makeParticle());
+      }
+
+      makeParticle() {
+        const depth = randomBetween(0.25, 1);
+        return {
+          x: randomBetween(0, this.width),
+          y: randomBetween(0, this.height),
+          depth,
+          radius: randomBetween(0.28, 1.08) * depth,
+          alpha: randomBetween(0.06, 0.32) * depth,
+          speed: randomBetween(2.5, 9) * depth,
+          drift: randomBetween(-3.5, 3.5),
+          phase: randomBetween(0, Math.PI * 2),
+        };
+      }
+
+      handlePointer(event) {
+        this.pointer.targetX = (event.clientX / this.width - 0.5) * 14;
+        this.pointer.targetY = (event.clientY / this.height - 0.5) * 10;
+      }
+
+      handleVisibility() {
+        if (document.hidden) {
+          this.stop();
+        } else {
+          this.lastTime = performance.now();
+          this.start();
+        }
+      }
+
+      start() {
+        if (this.running || this.reducedMotion || !this.context) return;
+        this.running = true;
+        this.frame = window.requestAnimationFrame(this.render);
+      }
+
+      stop() {
+        this.running = false;
+        window.cancelAnimationFrame(this.frame);
+      }
+
+      burst(intensity = 1) {
+        if (this.reducedMotion) return;
+
+        const amount = Math.round((this.width < 720 ? 18 : 32) * intensity);
+        for (let index = 0; index < amount; index += 1) {
+          const angle = randomBetween(0, Math.PI * 2);
+          const velocity = randomBetween(14, 68) * intensity;
+          this.burstParticles.push({
+            x: this.width / 2 + randomBetween(-12, 12),
+            y: this.height / 2 + randomBetween(-this.height * 0.28, this.height * 0.28),
+            vx: Math.cos(angle) * velocity,
+            vy: Math.sin(angle) * velocity * 0.42,
+            radius: randomBetween(0.45, 1.45),
+            alpha: randomBetween(0.16, 0.5),
+            life: 1,
+          });
+        }
+      }
+
+      render(now) {
+        if (!this.running || !this.context) return;
+
+        const delta = Math.min((now - this.lastTime) / 1000, 0.034);
+        this.lastTime = now;
+        const context = this.context;
+
+        context.clearRect(0, 0, this.width, this.height);
+        this.pointer.x = lerp(this.pointer.x, this.pointer.targetX, 0.025);
+        this.pointer.y = lerp(this.pointer.y, this.pointer.targetY, 0.025);
+
+        for (const particle of this.particles) {
+          particle.phase += delta * 0.28;
+          particle.y -= particle.speed * delta;
+          particle.x += (particle.drift + Math.sin(particle.phase) * 1.6) * delta;
+
+          if (particle.y < -8) {
+            particle.y = this.height + 8;
+            particle.x = randomBetween(0, this.width);
+          }
+          if (particle.x < -8) particle.x = this.width + 8;
+          if (particle.x > this.width + 8) particle.x = -8;
+
+          const x = particle.x + this.pointer.x * particle.depth;
+          const y = particle.y + this.pointer.y * particle.depth;
+          const flicker = 0.75 + Math.sin(particle.phase * 2.2) * 0.25;
+
+          context.beginPath();
+          context.fillStyle = `rgba(242, 240, 231, ${particle.alpha * flicker})`;
+          context.arc(x, y, particle.radius, 0, Math.PI * 2);
+          context.fill();
+        }
+
+        this.burstParticles = this.burstParticles.filter((particle) => {
+          particle.life -= delta * 0.42;
+          particle.x += particle.vx * delta;
+          particle.y += particle.vy * delta;
+          particle.vx *= 0.987;
+          particle.vy *= 0.987;
+
+          if (particle.life <= 0) return false;
+
+          context.beginPath();
+          context.fillStyle = `rgba(247, 245, 237, ${particle.alpha * particle.life})`;
+          context.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+          context.fill();
+          return true;
+        });
+
+        this.frame = window.requestAnimationFrame(this.render);
+      }
+
+      destroy() {
+        this.stop();
+        this.abortController.abort();
+      }
+    }
+
+    function applyProceduralGrain(element) {
+      if (!element) return;
+
+      const size = 96;
+      const canvas = document.createElement("canvas");
+      const context = canvas.getContext("2d");
+      canvas.width = size;
+      canvas.height = size;
+
+      const image = context.createImageData(size, size);
+      for (let index = 0; index < image.data.length; index += 4) {
+        const value = Math.floor(randomBetween(82, 190));
+        image.data[index] = value;
+        image.data[index + 1] = value;
+        image.data[index + 2] = value;
+        image.data[index + 3] = Math.floor(randomBetween(8, 28));
+      }
+
+      context.putImageData(image, 0, 0);
+      element.style.backgroundImage = `url(${canvas.toDataURL("image/png")})`;
+    }
+
+      /* audio.js */
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+
+    class CinematicAudio {
+      constructor() {
+        this.context = null;
+        this.master = null;
+        this.ambience = null;
+        this.noiseBuffer = null;
+        this.ambienceStarted = false;
+        this.muted = false;
+      }
+
+      async unlock() {
+        if (!AudioContextClass) return false;
+        this.ensureContext();
+
+        try {
+          if (this.context.state === "suspended") await this.context.resume();
+          this.startAmbience();
+          return this.context.state === "running";
+        } catch {
+          return false;
+        }
+      }
+
+      ensureContext() {
+        if (this.context) return this.context;
+
+        this.context = new AudioContextClass();
+        this.master = this.context.createGain();
+        this.master.gain.value = this.muted ? 0 : 0.0001;
+        this.master.connect(this.context.destination);
+        this.noiseBuffer = this.createNoiseBuffer(4);
+        return this.context;
+      }
+
+      createNoiseBuffer(duration) {
+        const frameCount = Math.round(this.context.sampleRate * duration);
+        const buffer = this.context.createBuffer(1, frameCount, this.context.sampleRate);
+        const channel = buffer.getChannelData(0);
+        let previous = 0;
+
+        for (let index = 0; index < frameCount; index += 1) {
+          const white = Math.random() * 2 - 1;
+          previous = previous * 0.985 + white * 0.015;
+          channel[index] = previous * 3.2;
+        }
+
+        return buffer;
+      }
+
+      startAmbience() {
+        if (!this.context || this.ambienceStarted) return;
+
+        const now = this.context.currentTime;
+        this.ambienceStarted = true;
+        this.ambience = this.context.createGain();
+        this.ambience.gain.setValueAtTime(0.0001, now);
+        this.ambience.gain.exponentialRampToValueAtTime(0.16, now + 2.8);
+        this.ambience.connect(this.master);
+
+        const room = this.context.createBufferSource();
+        const roomFilter = this.context.createBiquadFilter();
+        const roomGain = this.context.createGain();
+        room.buffer = this.noiseBuffer;
+        room.loop = true;
+        roomFilter.type = "lowpass";
+        roomFilter.frequency.value = 620;
+        roomFilter.Q.value = 0.42;
+        roomGain.gain.value = 0.38;
+        room.connect(roomFilter);
+        roomFilter.connect(roomGain);
+        roomGain.connect(this.ambience);
+        room.start(now);
+
+        const tone = this.context.createOscillator();
+        const toneGain = this.context.createGain();
+        const toneFilter = this.context.createBiquadFilter();
+        tone.type = "sine";
+        tone.frequency.value = 43.65;
+        tone.detune.value = -7;
+        toneGain.gain.value = 0.09;
+        toneFilter.type = "lowpass";
+        toneFilter.frequency.value = 110;
+        tone.connect(toneFilter);
+        toneFilter.connect(toneGain);
+        toneGain.connect(this.ambience);
+        tone.start(now);
+
+        this.master.gain.cancelScheduledValues(now);
+        this.master.gain.setValueAtTime(Math.max(this.master.gain.value, 0.0001), now);
+        this.master.gain.exponentialRampToValueAtTime(this.muted ? 0.0001 : 0.72, now + 1.4);
+      }
+
+      bassHit() {
+        if (!this.context || this.muted) return;
+        const now = this.context.currentTime + 0.02;
+        const oscillator = this.context.createOscillator();
+        const gain = this.context.createGain();
+        const filter = this.context.createBiquadFilter();
+
+        oscillator.type = "sine";
+        oscillator.frequency.setValueAtTime(84, now);
+        oscillator.frequency.exponentialRampToValueAtTime(36, now + 1.35);
+        filter.type = "lowpass";
+        filter.frequency.setValueAtTime(190, now);
+        filter.frequency.exponentialRampToValueAtTime(72, now + 1.2);
+        gain.gain.setValueAtTime(0.0001, now);
+        gain.gain.exponentialRampToValueAtTime(0.72, now + 0.045);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 1.5);
+        oscillator.connect(filter);
+        filter.connect(gain);
+        gain.connect(this.master);
+        oscillator.start(now);
+        oscillator.stop(now + 1.55);
+      }
+
+      fabricRush() {
+        if (!this.context || this.muted) return;
+        const now = this.context.currentTime + 0.04;
+        const source = this.context.createBufferSource();
+        const filter = this.context.createBiquadFilter();
+        const gain = this.context.createGain();
+
+        source.buffer = this.noiseBuffer;
+        filter.type = "bandpass";
+        filter.frequency.setValueAtTime(210, now);
+        filter.frequency.exponentialRampToValueAtTime(840, now + 1.1);
+        filter.Q.value = 0.65;
+        gain.gain.setValueAtTime(0.0001, now);
+        gain.gain.exponentialRampToValueAtTime(0.18, now + 0.24);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 2.45);
+        source.connect(filter);
+        filter.connect(gain);
+        gain.connect(this.master);
+        source.start(now, 0.2, 2.6);
+      }
+
+      revealChord() {
+        if (!this.context || this.muted) return;
+        const now = this.context.currentTime + 0.02;
+        [146.83, 220, 293.66, 440].forEach((frequency, index) => {
+          const oscillator = this.context.createOscillator();
+          const gain = this.context.createGain();
+          oscillator.type = index % 2 ? "sine" : "triangle";
+          oscillator.frequency.value = frequency;
+          gain.gain.setValueAtTime(0.0001, now + index * 0.075);
+          gain.gain.exponentialRampToValueAtTime(0.075 / (index + 1), now + 0.18 + index * 0.075);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + 1.9 + index * 0.08);
+          oscillator.connect(gain);
+          gain.connect(this.master);
+          oscillator.start(now + index * 0.075);
+          oscillator.stop(now + 2.1 + index * 0.08);
+        });
+      }
+
+      loaderTick(index) {
+        if (!this.context || this.muted) return;
+        const now = this.context.currentTime + 0.01;
+        const oscillator = this.context.createOscillator();
+        const gain = this.context.createGain();
+        oscillator.type = "sine";
+        oscillator.frequency.value = 330 * Math.pow(1.122, index);
+        gain.gain.setValueAtTime(0.0001, now);
+        gain.gain.exponentialRampToValueAtTime(0.026, now + 0.018);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.18);
+        oscillator.connect(gain);
+        gain.connect(this.master);
+        oscillator.start(now);
+        oscillator.stop(now + 0.2);
+      }
+
+      setMuted(muted) {
+        this.muted = muted;
+        if (!this.context || !this.master) return;
+
+        const now = this.context.currentTime;
+        this.master.gain.cancelScheduledValues(now);
+        this.master.gain.setTargetAtTime(muted ? 0.0001 : 0.72, now, 0.035);
+      }
+
+      fadeOut(duration = 1.2) {
+        if (!this.context || !this.master) return;
+        const now = this.context.currentTime;
+        this.master.gain.cancelScheduledValues(now);
+        this.master.gain.setValueAtTime(Math.max(this.master.gain.value, 0.0001), now);
+        this.master.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+      }
+    }
+
+      /* loader.js */
+    const LOADER_STEPS = [
+      "Preparing experience",
+      "Calibrating material and light",
+      "Synchronizing spatial language",
+      "Resolving final details",
+      "Entering studio",
+    ];
+
+    class StudioLoader {
+      constructor({ gsap, audio, reducedMotion = false } = {}) {
+        this.gsap = gsap;
+        this.audio = audio;
+        this.reducedMotion = reducedMotion;
+        this.element = qs("#studioLoader");
+        this.label = qs("#loaderLabel");
+        this.index = qs("#loaderIndex");
+        this.progress = qs("#loaderProgress");
+        this.countdown = qs("#countdownValue");
+        this.timeline = null;
+        this.timer = 0;
+        this.countdownTimer = 0;
+        this.finishTimer = 0;
+      }
+
+      start() {
+        if (!this.gsap) return this.startFallback();
+
+        const totalDuration = 10;
+        const stepDuration = totalDuration / LOADER_STEPS.length;
+
+        return new Promise((resolve) => {
+          this.timeline = this.gsap.timeline({
+            defaults: { ease: "power2.out" },
+            onComplete: resolve,
+          });
+
+          this.gsap.set(this.progress, { scaleX: 0 });
+          this.updateCountdown(10);
+          this.timeline.to(
+            this.progress,
+            { scaleX: 1, duration: totalDuration, ease: "none" },
+            0,
+          );
+
+          LOADER_STEPS.forEach((step, stepIndex) => {
+            const position = stepIndex * stepDuration;
+
+            if (stepIndex > 0) {
+              this.timeline.to(
+                [this.label, this.index],
+                {
+                  y: -7,
+                  autoAlpha: 0,
+                  duration: this.reducedMotion ? 0.01 : 0.2,
+                  stagger: 0.025,
+                },
+                position - (this.reducedMotion ? 0.01 : 0.22),
+              );
+            }
+
+            this.timeline.call(() => this.updateStep(stepIndex, step), [], position);
+            this.timeline.fromTo(
+              [this.index, this.label],
+              { y: 7, autoAlpha: 0 },
+              {
+                y: 0,
+                autoAlpha: 1,
+                duration: this.reducedMotion ? 0.01 : 0.36,
+                stagger: 0.035,
+              },
+              position + 0.01,
+            );
+          });
+
+          for (let elapsed = 1; elapsed < 10; elapsed += 1) {
+            const secondsRemaining = 10 - elapsed;
+            const changeDuration = this.reducedMotion ? 0.01 : 0.16;
+            this.timeline
+              .to(
+                this.countdown,
+                { y: -5, autoAlpha: 0, duration: changeDuration, ease: "power2.in" },
+                elapsed - changeDuration,
+              )
+              .call(() => this.updateCountdown(secondsRemaining), [], elapsed)
+              .fromTo(
+                this.countdown,
+                { y: 5, autoAlpha: 0 },
+                { y: 0, autoAlpha: 1, duration: changeDuration * 1.8, ease: "power2.out" },
+                elapsed,
+              );
+          }
+        });
+      }
+
+      updateStep(stepIndex, label) {
+        const displayIndex = String(stepIndex + 1).padStart(2, "0");
+        this.index.textContent = displayIndex;
+        this.label.textContent = label;
+        this.element.setAttribute("aria-label", label);
+        this.audio?.loaderTick(stepIndex);
+      }
+
+      updateCountdown(secondsRemaining) {
+        this.countdown.textContent = String(secondsRemaining);
+      }
+
+      startFallback() {
+        const totalDuration = 10000;
+        const stepDuration = totalDuration / LOADER_STEPS.length;
+        let stepIndex = 0;
+        let secondsRemaining = 10;
+        this.updateStep(0, LOADER_STEPS[0]);
+        this.updateCountdown(secondsRemaining);
+        this.progress.style.transition = `transform ${totalDuration}ms linear`;
+        window.requestAnimationFrame(() => {
+          this.progress.style.transform = "scaleX(1)";
+        });
+
+        return new Promise((resolve) => {
+          this.timer = window.setInterval(() => {
+            stepIndex += 1;
+            if (stepIndex >= LOADER_STEPS.length) {
+              window.clearInterval(this.timer);
+              return;
+            }
+            this.updateStep(stepIndex, LOADER_STEPS[stepIndex]);
+          }, stepDuration);
+
+          this.countdownTimer = window.setInterval(() => {
+            secondsRemaining -= 1;
+            if (secondsRemaining < 1) {
+              window.clearInterval(this.countdownTimer);
+              return;
+            }
+            this.updateCountdown(secondsRemaining);
+          }, 1000);
+
+          this.finishTimer = window.setTimeout(resolve, totalDuration);
+        });
+      }
+
+      stop() {
+        this.timeline?.kill();
+        window.clearInterval(this.timer);
+        window.clearInterval(this.countdownTimer);
+        window.clearTimeout(this.finishTimer);
+      }
+    }
+
+      /* transition.js */
+    class SiteTransition {
+      constructor({ gsap, audio, destination, reducedMotion = false } = {}) {
+        this.gsap = gsap;
+        this.audio = audio;
+        this.destination = destination;
+        this.reducedMotion = reducedMotion;
+        this.veil = qs("#transitionVeil");
+        this.aperture = qs(".transition-aperture", this.veil);
+        this.label = qs("p", this.veil);
+        this.launchStage = qs("#launchStage");
+        this.launchCamera = qs("#launchCamera");
+        this.started = false;
+      }
+
+      go() {
+        if (this.started) return;
+        this.started = true;
+        document.body.classList.add("is-transitioning");
+        setInteractive(this.launchStage, false);
+        this.audio?.fadeOut(this.reducedMotion ? 0.2 : 1.4);
+
+        if (!this.gsap) {
+          this.veil.style.visibility = "visible";
+          this.veil.style.background = "#f5f3ec";
+          window.setTimeout(() => this.navigate(), this.reducedMotion ? 120 : 700);
+          return;
+        }
+
+        const duration = this.reducedMotion ? 0.01 : 1;
+        const timeline = this.gsap.timeline({ onComplete: () => this.navigate() });
+        timeline
+          .set(this.veil, { autoAlpha: 1 }, 0)
+          .to(
+            this.launchCamera,
+            {
+              scale: 1.065,
+              autoAlpha: 0.32,
+              filter: "blur(4px)",
+              duration: duration * 1.15,
+              ease: "power2.in",
+            },
+            0,
+          )
+          .to(
+            this.label,
+            { autoAlpha: 1, duration: duration * 0.42, ease: "power1.out" },
+            duration * 0.18,
+          )
+          .to(
+            this.aperture,
+            {
+              autoAlpha: 1,
+              scale: 0.55,
+              duration: duration * 0.72,
+              ease: "power2.in",
+            },
+            duration * 0.35,
+          )
+          .to(
+            this.aperture,
+            {
+              scale: 22,
+              duration: duration * 0.92,
+              ease: "expo.in",
+            },
+            duration * 0.96,
+          )
+          .to(
+            this.label,
+            { autoAlpha: 0, duration: duration * 0.2 },
+            duration * 1.12,
+          );
+      }
+
+      navigate() {
+        window.location.assign(this.destination);
+      }
+    }
+
+      /* curtain.js */
+    class CurtainExperience {
+      constructor({ gsap, SplitText, audio, particles, reducedMotion = false } = {}) {
+        this.gsap = gsap;
+        this.SplitText = SplitText;
+        this.audio = audio;
+        this.particles = particles;
+        this.reducedMotion = reducedMotion;
+        this.opened = false;
+
+        this.scene = qs("#curtainScene");
+        this.left = qs("#curtainLeft");
+        this.right = qs("#curtainRight");
+        this.valance = qs("#curtainValance");
+        this.branding = qs("#curtainBranding");
+        this.button = qs("#beginExperience");
+        this.reflection = qs(".glass-reflection", this.branding);
+        this.rule = qs(".curtain-rule span", this.branding);
+        this.wordmark = qs(".athreix-wordmark", this.branding);
+        this.soundHint = qs("#soundHint");
+
+        this.launchStage = qs("#launchStage");
+        this.launchTitle = qs("#launchTitle");
+        this.launchEyebrow = qs(".launch-eyebrow", this.launchStage);
+        this.launchDescription = qs(".launch-description", this.launchStage);
+        this.launchLoader = qs("#studioLoader");
+        this.enterNow = qs("#enterNow");
+        this.launchCoordinates = qsa(".launch-coordinate", this.launchStage);
+        this.lightSeam = qs("#lightSeam");
+        this.lightBloom = qs("#lightBloom");
+        this.soundControl = qs("#soundControl");
+
+        this.curtainTitleSplit = null;
+        this.launchTitleSplit = null;
+      }
+
+      prepare() {
+        if (!this.gsap) return;
+
+        this.gsap.set(this.scene, { autoAlpha: 0 });
+        this.gsap.set(this.branding, { autoAlpha: 0, y: 18, scale: 0.982 });
+        this.gsap.set(
+          [
+            qs(".curtain-kicker", this.branding),
+            qs(".curtain-entity", this.branding),
+            qs(".curtain-tagline", this.branding),
+            qs(".athreix-lockup", this.branding),
+            this.button,
+            this.soundHint,
+          ],
+          { autoAlpha: 0, y: 10 },
+        );
+        this.gsap.set(this.reflection, { autoAlpha: 0, xPercent: 0 });
+        this.gsap.set(this.rule, { scaleX: 0 });
+
+        if (this.SplitText) {
+          this.curtainTitleSplit = this.SplitText.create("#curtainTitle", {
+            type: "words",
+            mask: "words",
+          });
+          this.launchTitleSplit = this.SplitText.create("#launchTitle", {
+            type: "words",
+            mask: "words",
+          });
+          this.gsap.set(this.curtainTitleSplit.words, { yPercent: 115, autoAlpha: 0 });
+          this.gsap.set(this.launchTitleSplit.words, { yPercent: 118, autoAlpha: 0 });
+        } else {
+          this.gsap.set(["#curtainTitle", "#launchTitle"], { autoAlpha: 0, y: 24 });
+        }
+
+        this.gsap.set(
+          [this.launchEyebrow, this.launchDescription, this.launchLoader, this.enterNow, ...this.launchCoordinates],
+          { autoAlpha: 0, y: 10 },
+        );
+        this.installMagneticButton();
+      }
+
+      createPresentationTimeline(prelude) {
+        if (!this.gsap) return null;
+
+        const duration = this.reducedMotion ? 0.01 : 1;
+        const timeline = this.gsap.timeline();
+        const titleTarget = this.curtainTitleSplit?.words || "#curtainTitle";
+
+        timeline
+          .set(this.scene, { autoAlpha: 0 })
+          .to(this.scene, { autoAlpha: 1, duration: duration * 1.15, ease: "power2.inOut" }, 0)
+          .to(prelude, { autoAlpha: 0, duration: duration * 0.85, ease: "power1.in" }, 0.12)
+          .fromTo(
+            [this.left, this.right],
+            { scaleX: 1.025 },
+            { scaleX: 1, duration: duration * 1.25, ease: "curtainSettle" },
+            0.08,
+          )
+          .to(
+            this.branding,
+            { autoAlpha: 1, y: 0, scale: 1, duration: duration * 0.95, ease: "architect" },
+            0.42,
+          )
+          .to(
+            qs(".curtain-kicker", this.branding),
+            { autoAlpha: 1, y: 0, duration: duration * 0.55 },
+            0.78,
+          )
+          .to(
+            titleTarget,
+            {
+              yPercent: 0,
+              y: 0,
+              autoAlpha: 1,
+              duration: duration * 0.88,
+              stagger: duration * 0.08,
+              ease: "architect",
+            },
+            0.84,
+          )
+          .to(
+            qs(".curtain-entity", this.branding),
+            { autoAlpha: 1, y: 0, duration: duration * 0.52 },
+            1.08,
+          )
+          .to(this.rule, { scaleX: 1, duration: duration * 0.9, ease: "architect" }, 1.03)
+          .to(
+            qs(".curtain-tagline", this.branding),
+            { autoAlpha: 1, y: 0, duration: duration * 0.62 },
+            1.23,
+          )
+          .to(
+            qs(".athreix-lockup", this.branding),
+            { autoAlpha: 1, y: 0, duration: duration * 0.5 },
+            1.34,
+          )
+          .to(this.wordmark, { y: 0, duration: duration * 0.82, ease: "architect" }, 1.38)
+          .to(
+            this.button,
+            { autoAlpha: 1, y: 0, duration: duration * 0.68, ease: "architect" },
+            1.6,
+          )
+          .to(".button-border", { clipPath: "inset(0 0% 0 0)", duration: duration * 0.9 }, 1.7)
+          .to(this.soundHint, { autoAlpha: 1, y: 0, duration: duration * 0.5 }, 1.82)
+          .to(
+            this.reflection,
+            { autoAlpha: 0.85, xPercent: 305, duration: duration * 1.4, ease: "power1.inOut" },
+            0.62,
+          )
+          .to(this.reflection, { autoAlpha: 0, duration: duration * 0.35 }, 1.88)
+          .call(() => this.activate(), [], 2.08 * duration);
+
+        return timeline;
+      }
+
+      activate() {
+        setInteractive(this.scene, true);
+        safeFocus(this.button);
+      }
+
+      presentFallback(prelude) {
+        prelude.style.display = "none";
+        this.scene.style.visibility = "visible";
+        this.scene.style.opacity = "1";
+        this.branding.style.opacity = "1";
+        this.branding.style.visibility = "visible";
+        this.wordmark.style.transform = "none";
+        setInteractive(this.scene, true);
+        safeFocus(this.button);
+      }
+
+      presentReduced(prelude) {
+        const titleTarget = this.curtainTitleSplit?.words || "#curtainTitle";
+        this.gsap.set(prelude, { autoAlpha: 0 });
+        this.gsap.set(this.scene, { autoAlpha: 1 });
+        this.gsap.set(this.branding, { autoAlpha: 1, y: 0, scale: 1 });
+        this.gsap.set(
+          [
+            qs(".curtain-kicker", this.branding),
+            qs(".curtain-entity", this.branding),
+            qs(".curtain-tagline", this.branding),
+            qs(".athreix-lockup", this.branding),
+            this.button,
+            this.soundHint,
+            titleTarget,
+          ],
+          { autoAlpha: 1, y: 0, yPercent: 0 },
+        );
+        this.gsap.set(this.wordmark, { y: 0 });
+        this.gsap.set(this.rule, { scaleX: 1 });
+        this.gsap.set(".button-border", { clipPath: "inset(0 0% 0 0)" });
+        this.activate();
+      }
+
+      open() {
+        if (this.opened) return Promise.resolve();
+        this.opened = true;
+        this.button.disabled = true;
+        setInteractive(this.scene, false);
+        setInteractive(this.launchStage, true);
+        document.body.classList.add("is-launching");
+
+        this.audio?.unlock().then((unlocked) => {
+          if (!unlocked) return;
+          this.audio.bassHit();
+          this.audio.fabricRush();
+        });
+        this.particles?.burst(1.15);
+
+        if (!this.gsap) return this.openFallback();
+        if (this.reducedMotion) return this.openReduced();
+
+        const duration = this.reducedMotion ? 0.01 : 1;
+        const launchTitleTarget = this.launchTitleSplit?.words || this.launchTitle;
+
+        return new Promise((resolve) => {
+          const timeline = this.gsap.timeline({
+            onComplete: () => {
+              this.gsap.set(this.scene, { autoAlpha: 0 });
+              this.scene.style.visibility = "hidden";
+              this.soundControl.disabled = false;
+              this.soundControl.classList.add("is-visible");
+              safeFocus(this.launchTitle);
+              resolve();
+            },
+          });
+
+          timeline
+            .set(this.launchStage, { autoAlpha: 1 }, 0)
+            .to(
+              this.branding,
+              {
+                autoAlpha: 0,
+                y: -10,
+                scale: 0.945,
+                filter: "blur(5px)",
+                duration: duration * 0.62,
+                ease: "power2.in",
+              },
+              0,
+            )
+            .to(
+              this.lightSeam,
+              { autoAlpha: 1, scaleY: 1, duration: duration * 0.36, ease: "power2.out" },
+              0.08,
+            )
+            .to(
+              this.left,
+              {
+                xPercent: -103,
+                rotationY: 7,
+                skewY: -1.2,
+                scaleX: 0.84,
+                filter: "blur(1.5px)",
+                duration: duration * 2.82,
+                ease: "heavyCurtain",
+              },
+              0.12,
+            )
+            .to(
+              this.right,
+              {
+                xPercent: 103,
+                rotationY: -7,
+                skewY: 1.2,
+                scaleX: 0.84,
+                filter: "blur(1.5px)",
+                duration: duration * 2.82,
+                ease: "heavyCurtain",
+              },
+              0.12,
+            )
+            .to(
+              qsa(".curtain-fold", this.scene),
+              {
+                scaleX: 0.58,
+                x: (index) => (index < 6 ? -18 : 18),
+                duration: duration * 2.3,
+                stagger: { each: duration * 0.018, from: "center" },
+                ease: "heavyCurtain",
+              },
+              0.16,
+            )
+            .to(
+              this.valance,
+              {
+                yPercent: -116,
+                scaleY: 0.82,
+                autoAlpha: 0,
+                duration: duration * 1.65,
+                ease: "heavyCurtain",
+              },
+              0.28,
+            )
+            .to(
+              this.lightBloom,
+              { autoAlpha: 0.58, scale: 1.38, duration: duration * 1.15, ease: "power2.out" },
+              0.34,
+            )
+            .to(
+              this.lightSeam,
+              { scaleX: 42, autoAlpha: 0, duration: duration * 1.45, ease: "power2.out" },
+              0.48,
+            )
+            .to(
+              this.lightBloom,
+              { autoAlpha: 0, scale: 2.1, duration: duration * 1.3, ease: "power1.out" },
+              1.12,
+            )
+            .to(
+              this.launchCoordinates,
+              { autoAlpha: 1, y: 0, duration: duration * 0.55, stagger: duration * 0.08 },
+              0.88,
+            )
+            .to(
+              this.launchEyebrow,
+              { autoAlpha: 1, y: 0, duration: duration * 0.58 },
+              1.02,
+            )
+            .to(
+              launchTitleTarget,
+              {
+                yPercent: 0,
+                y: 0,
+                autoAlpha: 1,
+                duration: duration * 1.02,
+                stagger: duration * 0.1,
+                ease: "architect",
+              },
+              1.08,
+            )
+            .to(
+              this.launchDescription,
+              { autoAlpha: 1, y: 0, duration: duration * 0.72, ease: "power2.out" },
+              1.38,
+            )
+            .to(
+              [this.launchLoader, this.enterNow],
+              { autoAlpha: 1, y: 0, duration: duration * 0.62, stagger: duration * 0.09 },
+              1.62,
+            )
+            .call(() => this.audio?.revealChord(), [], 1.18 * duration)
+            .to(
+              this.soundControl,
+              { autoAlpha: 1, y: 0, duration: duration * 0.55 },
+              1.85,
+            );
+        });
+      }
+
+      openReduced() {
+        const launchTitleTarget = this.launchTitleSplit?.words || this.launchTitle;
+        this.gsap.set(this.scene, { autoAlpha: 0 });
+        this.scene.style.visibility = "hidden";
+        this.gsap.set(this.launchStage, { autoAlpha: 1 });
+        this.gsap.set(
+          [
+            this.launchEyebrow,
+            this.launchDescription,
+            this.launchLoader,
+            this.enterNow,
+            ...this.launchCoordinates,
+            launchTitleTarget,
+          ],
+          { autoAlpha: 1, y: 0, yPercent: 0 },
+        );
+        this.soundControl.disabled = false;
+        this.soundControl.classList.add("is-visible");
+        this.gsap.set(this.soundControl, { autoAlpha: 1, y: 0 });
+        this.audio?.revealChord();
+        safeFocus(this.launchTitle);
+        return Promise.resolve();
+      }
+
+      openFallback() {
+        this.launchStage.style.visibility = "visible";
+        this.launchStage.style.opacity = "1";
+        this.left.style.transition = "transform 1.5s cubic-bezier(.77,0,.175,1)";
+        this.right.style.transition = "transform 1.5s cubic-bezier(.77,0,.175,1)";
+        this.branding.style.opacity = "0";
+        this.left.style.transform = "translateX(-104%)";
+        this.right.style.transform = "translateX(104%)";
+        this.soundControl.disabled = false;
+        this.soundControl.classList.add("is-visible");
+        this.soundControl.style.opacity = "1";
+
+        return new Promise((resolve) => {
+          window.setTimeout(() => {
+            this.scene.style.visibility = "hidden";
+            resolve();
+          }, this.reducedMotion ? 80 : 1550);
+        });
+      }
+
+      installMagneticButton() {
+        if (
+          !this.gsap ||
+          this.reducedMotion ||
+          !window.matchMedia("(hover: hover) and (pointer: fine)").matches
+        ) {
+          return;
+        }
+
+        const moveX = this.gsap.quickTo(this.button, "x", { duration: 0.42, ease: "power3.out" });
+        const moveY = this.gsap.quickTo(this.button, "y", { duration: 0.42, ease: "power3.out" });
+        let bounds = null;
+
+        this.button.addEventListener("pointerenter", () => {
+          bounds = this.button.getBoundingClientRect();
+        });
+        this.button.addEventListener("pointermove", (event) => {
+          if (!bounds) return;
+          const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 16;
+          const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 12;
+          moveX(x);
+          moveY(y);
+        });
+        this.button.addEventListener("pointerleave", () => {
+          bounds = null;
+          moveX(0);
+          moveY(0);
+        });
+      }
+    }
+
+      /* timeline.js */
+    class ArchitecturalPrelude {
+      constructor({ gsap, SplitText, Flip, MotionPathPlugin, curtain, reducedMotion = false } = {}) {
+        this.gsap = gsap;
+        this.SplitText = SplitText;
+        this.Flip = Flip;
+        this.MotionPathPlugin = MotionPathPlugin;
+        this.curtain = curtain;
+        this.reducedMotion = reducedMotion;
+
+        this.prelude = qs("#prelude");
+        this.quoteScene = qs("#quoteScene");
+        this.quoteText = qs("#quoteText");
+        this.drawingScene = qs("#drawingScene");
+        this.caption = qs("#drawingCaption");
+        this.constructionPaths = qsa("#constructionStrokes path");
+        this.sketchPaths = qsa("#sketchStrokes path");
+        this.sketchGroup = qs("#sketchStrokes");
+        this.wireframeGroup = qs("#wireframeStrokes");
+        this.wireframePaths = qsa("#wireframeStrokes path");
+        this.draftingPoint = qs("#draftingPoint");
+        this.primaryPath = qs("#primarySketchPath");
+        this.geometryField = qs("#geometryField");
+        this.geometryPieces = qsa(".geometry-piece", this.geometryField);
+        this.spotlight = qs("#spotlight");
+        this.grid = qs("#blueprintGrid");
+        this.grain = qs("#paperGrain");
+        this.dust = qs("#dustCanvas");
+        this.haze = qsa(".ambient-haze");
+      }
+
+      play() {
+        document.body.classList.add("is-running");
+
+        if (!this.gsap) return this.playFallback();
+        if (this.reducedMotion) return this.playReduced();
+
+        const timeline = this.gsap.timeline();
+        const quoteSplit = this.SplitText
+          ? this.SplitText.create(this.quoteText, { type: "lines,words", mask: "lines" })
+          : null;
+        const quoteWords = quoteSplit?.words || this.quoteText;
+        const geometryTween = this.createGeometryTween();
+        const curtainTimeline = this.curtain.createPresentationTimeline(this.prelude);
+
+        this.gsap.set(quoteWords, { yPercent: 118, autoAlpha: 0 });
+        this.gsap.set([this.quoteScene, this.drawingScene], { autoAlpha: 0 });
+        this.gsap.set([this.caption, this.geometryField], { autoAlpha: 0 });
+        this.gsap.set(this.draftingPoint, { autoAlpha: 0 });
+
+        timeline
+          .set(this.quoteScene, { autoAlpha: 1 }, 0)
+          .to(this.dust, { autoAlpha: 0.42, duration: 2.5, ease: "power1.out" }, 0.15)
+          .to(this.grain, { autoAlpha: 0.28, duration: 2.8, ease: "power1.out" }, 0.2)
+          .to(this.haze, { autoAlpha: 1, duration: 3.2, stagger: 0.18, ease: "power1.out" }, 0.22)
+          .to(
+            this.spotlight,
+            { autoAlpha: 0.92, scaleX: 1, duration: 3.8, ease: "power2.out" },
+            0,
+          )
+          .fromTo(
+            ".quote-kicker",
+            { autoAlpha: 0, y: 8 },
+            { autoAlpha: 1, y: 0, duration: 0.75, ease: "power2.out" },
+            0.66,
+          )
+          .to(
+            quoteWords,
+            { yPercent: 0, autoAlpha: 1, duration: 1.15, stagger: 0.055, ease: "architect" },
+            0.76,
+          )
+          .fromTo(
+            ".quote-axis span",
+            { autoAlpha: 0, y: 5 },
+            { autoAlpha: 1, y: 0, duration: 0.55, stagger: 0.12 },
+            1.42,
+          )
+          .to(".quote-axis i", { scaleX: 1, duration: 0.9, ease: "architect" }, 1.46)
+          .to(
+            this.grid,
+            { autoAlpha: 0.72, duration: 2.2, ease: "power1.inOut" },
+            3.05,
+          )
+          .call(() => document.body.classList.add("is-blueprint"), [], 3.05)
+          .to(this.quoteScene, { autoAlpha: 0, y: -10, duration: 0.72, ease: "power2.in" }, 3.28)
+          .set(this.drawingScene, { autoAlpha: 1 }, 3.72)
+          .to(this.caption, { autoAlpha: 1, duration: 0.65 }, 3.85)
+          .to(
+            this.constructionPaths,
+            { strokeDashoffset: 0, duration: 1.35, stagger: 0.085, ease: "power1.inOut" },
+            3.82,
+          )
+          .to(
+            this.sketchPaths,
+            {
+              strokeDashoffset: 0,
+              duration: 0.78,
+              stagger: 0.105,
+              ease: "power1.inOut",
+            },
+            4.18,
+          );
+
+        if (this.MotionPathPlugin) {
+          timeline
+            .set(this.draftingPoint, { autoAlpha: 0.9 }, 4.2)
+            .to(
+              this.draftingPoint,
+              {
+                motionPath: {
+                  path: this.primaryPath,
+                  align: this.primaryPath,
+                  alignOrigin: [0.5, 0.5],
+                  autoRotate: false,
+                },
+                duration: 2.7,
+                ease: "none",
+              },
+              4.2,
+            )
+            .to(this.draftingPoint, { autoAlpha: 0, duration: 0.32 }, 6.72);
+        }
+
+        timeline
+          .to(this.wireframeGroup, { autoAlpha: 1, duration: 0.3 }, 6.68)
+          .to(
+            this.wireframePaths,
+            { strokeDashoffset: 0, duration: 0.95, stagger: 0.07, ease: "power1.inOut" },
+            6.7,
+          )
+          .to(this.sketchGroup, { autoAlpha: 0.12, duration: 0.85 }, 7.22)
+          .to(this.constructionPaths, { autoAlpha: 0.22, duration: 0.8 }, 7.24)
+          .to(this.geometryField, { autoAlpha: 1, duration: 0.65 }, 7.42);
+
+        if (geometryTween) timeline.add(geometryTween, 7.5);
+
+        timeline
+          .to(
+            this.geometryPieces,
+            {
+              borderColor: "rgba(245, 243, 236, 0.58)",
+              boxShadow: "inset 0 0 30px rgba(245, 243, 236, 0.04)",
+              duration: 1.1,
+              stagger: 0.04,
+            },
+            7.88,
+          )
+          .to(this.wireframeGroup, { autoAlpha: 0, duration: 0.8 }, 8.18)
+          .to(this.grid, { autoAlpha: 0.3, duration: 1.2 }, 8.45)
+          .to(this.drawingScene, { autoAlpha: 0, scale: 1.025, duration: 0.86 }, 9.02)
+          .add(curtainTimeline, 8.86)
+          .call(() => this.prelude.setAttribute("aria-hidden", "true"), [], 11.02);
+
+        return timeline;
+      }
+
+      createGeometryTween() {
+        if (!this.Flip) {
+          this.geometryField.classList.add("is-composed");
+          return this.gsap.from(this.geometryPieces, {
+            scale: 0.86,
+            rotation: (index) => (index % 2 ? 1.5 : -1.5),
+            duration: 1.3,
+            stagger: 0.055,
+            ease: "architect",
+            paused: true,
+          });
+        }
+
+        const state = this.Flip.getState(this.geometryPieces, {
+          props: "width,height,top,left",
+        });
+        this.geometryField.classList.add("is-composed");
+        return this.Flip.from(state, {
+          absolute: true,
+          scale: true,
+          duration: 1.55,
+          stagger: 0.045,
+          ease: "architect",
+          paused: true,
+        });
+      }
+
+      playReduced() {
+        this.gsap.set([this.quoteScene, this.drawingScene], { autoAlpha: 0 });
+        this.gsap.set(this.spotlight, { autoAlpha: 0.55, scaleX: 1 });
+        this.gsap.set(this.grid, { autoAlpha: 0.24 });
+        this.curtain.presentReduced(this.prelude);
+        return this.gsap.timeline();
+      }
+
+      playFallback() {
+        this.spotlight.style.opacity = "0.55";
+        this.grid.style.opacity = "0.24";
+        this.dust.style.opacity = "0.2";
+        window.setTimeout(() => this.curtain.presentFallback(this.prelude), 300);
+        return null;
+      }
+    }
+
+      /* main.js */
+    async function boot() {
+      const experience = qs("#experience");
+      const destination = experience.dataset.destination;
+      const reducedMotion = prefersReducedMotion();
+
+      await Promise.all([waitForFonts(), waitForGlobal("gsap")]);
+
+      const gsap = window.gsap || null;
+      const CustomEase = window.CustomEase || null;
+      const SplitText = window.SplitText || null;
+      const Flip = window.Flip || null;
+      const MotionPathPlugin = window.MotionPathPlugin || null;
+
+      if (gsap) {
+        const plugins = [CustomEase, SplitText, Flip, MotionPathPlugin].filter(Boolean);
+        if (plugins.length) gsap.registerPlugin(...plugins);
+
+        if (CustomEase) {
+          CustomEase.create("architect", "M0,0 C0.16,1 0.3,1 1,1");
+          CustomEase.create("curtainSettle", "M0,0 C0.18,0.82 0.26,1 1,1");
+          CustomEase.create(
+            "heavyCurtain",
+            "M0,0 C0.11,0.02 0.23,0.13 0.39,0.46 C0.58,0.86 0.8,1.02 1,1",
+          );
+        }
+      }
+
+      applyProceduralGrain(qs("#paperGrain"));
+
+      const particles = new DustField(qs("#dustCanvas"), { reducedMotion });
+      const audio = new CinematicAudio();
+      const curtain = new CurtainExperience({
+        gsap,
+        SplitText,
+        audio,
+        particles,
+        reducedMotion,
+      });
+      const loader = new StudioLoader({ gsap, audio, reducedMotion });
+      const transition = new SiteTransition({
+        gsap,
+        audio,
+        destination,
+        reducedMotion,
+      });
+      const prelude = new ArchitecturalPrelude({
+        gsap,
+        SplitText,
+        Flip,
+        MotionPathPlugin,
+        curtain,
+        reducedMotion,
+      });
+
+      const beginButton = qs("#beginExperience");
+      const enterNow = qs("#enterNow");
+      const soundControl = qs("#soundControl");
+      const soundStatus = qs("#soundStatus");
+      let loadingStarted = false;
+      let muted = false;
+
+      enterNow.href = destination;
+      curtain.prepare();
+      particles.init();
+      prelude.play();
+
+      const unlockAmbientSound = () => audio.unlock();
+      window.addEventListener("pointerdown", unlockAmbientSound, { once: true, passive: true });
+      window.addEventListener("keydown", unlockAmbientSound, { once: true });
+
+      beginButton.addEventListener(
+        "click",
+        async () => {
+          if (loadingStarted) return;
+          loadingStarted = true;
+          await curtain.open();
+          await loader.start();
+          transition.go();
+        },
+        { once: true },
+      );
+
+      enterNow.addEventListener("click", (event) => {
+        event.preventDefault();
+        loader.stop();
+        transition.go();
+      });
+
+      soundControl.addEventListener("click", async () => {
+        if (!audio.context) await audio.unlock();
+        muted = !muted;
+        audio.setMuted(muted);
+        soundControl.setAttribute("aria-pressed", String(muted));
+        soundControl.setAttribute("aria-label", muted ? "Unmute sound" : "Mute sound");
+        soundStatus.textContent = muted ? "Sound is muted" : "Sound is on";
+      });
+
+      window.addEventListener("pagehide", () => particles.destroy(), { once: true });
+    }
+
+    boot().catch(() => {
+      const prelude = qs("#prelude");
+      const scene = qs("#curtainScene");
+      const branding = qs("#curtainBranding");
+      prelude.style.display = "none";
+      scene.style.visibility = "visible";
+      scene.style.opacity = "1";
+      branding.style.opacity = "1";
+      branding.style.visibility = "visible";
+      scene.removeAttribute("inert");
+      scene.setAttribute("aria-hidden", "false");
+    });
+  })();
+  </script>
+</body>
+</html>
