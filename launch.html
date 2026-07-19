@@ -2853,10 +2853,11 @@
         const now = this.context.currentTime + 0.01;
         const oscillator = this.context.createOscillator();
         const gain = this.context.createGain();
+        const intensity = 0.052 + Math.min(index, 9) * 0.004;
         oscillator.type = "sine";
         oscillator.frequency.value = 330 * Math.pow(1.122, index);
         gain.gain.setValueAtTime(0.0001, now);
-        gain.gain.exponentialRampToValueAtTime(0.034, now + 0.018);
+        gain.gain.exponentialRampToValueAtTime(intensity, now + 0.018);
         gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.18);
         oscillator.connect(gain);
         gain.connect(this.master);
@@ -2992,11 +2993,11 @@
         this.index.textContent = displayIndex;
         this.label.textContent = label;
         this.element.setAttribute("aria-label", label);
-        this.audio?.loaderTick(stepIndex);
       }
 
       updateCountdown(secondsRemaining) {
         this.countdown.textContent = String(secondsRemaining);
+        this.audio?.loaderTick(clamp(10 - secondsRemaining, 0, 9));
       }
 
       startFallback() {
