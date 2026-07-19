@@ -18,6 +18,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preload" href="./assets/curtain-applause.mp3" as="fetch" type="audio/mpeg" crossorigin="anonymous">
+  <link rel="preload" href="./assets/madane-launch-score.mp3" as="fetch" type="audio/mpeg" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet">
 
   <style>
@@ -2376,7 +2377,7 @@
             <span class="guide-notice-mark" aria-hidden="true">i</span>
             <span>One click starts the full launch. Please do not click again.</span>
           </p>
-          <p class="sound-hint" id="soundHint">Sound begins on reveal</p>
+          <p class="sound-hint" id="soundHint">Music and sound begin on reveal</p>
         </aside>
       </div>
     </section>
@@ -2417,6 +2418,7 @@
     const randomBetween = (min, max) => min + Math.random() * (max - min);
     const ENTRY_GUIDE_KEY = "mdw-entry-guide-seen-v3";
     const APPLAUSE_ASSET_URL = "./assets/curtain-applause.mp3";
+    const SCORE_ASSET_URL = "./assets/madane-launch-score.mp3";
 
     const prefersReducedMotion = () =>
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -2734,19 +2736,27 @@
         this.clapBuffer = null;
         this.applauseBuffer = null;
         this.applauseDecodePromise = null;
-        this.applauseDataPromise = this.prefetchApplause();
+        this.applauseDataPromise = this.prefetchAudioAsset(APPLAUSE_ASSET_URL);
+        this.scoreBuffer = null;
+        this.scoreDecodePromise = null;
+        this.scoreDataPromise = this.prefetchAudioAsset(SCORE_ASSET_URL);
+        this.scoreSource = null;
+        this.scoreGain = null;
+        this.scoreStarted = false;
+        this.scoreFadeRequested = false;
+        this.scoreTargetLevel = 0.62;
         this.ambienceStarted = false;
         this.muted = false;
         this.outputLevel = 1;
       }
 
-      prefetchApplause() {
+      prefetchAudioAsset(assetUrl) {
         if (typeof window.fetch !== "function") return Promise.resolve(null);
 
         return window
-          .fetch(APPLAUSE_ASSET_URL, { cache: "force-cache", credentials: "omit" })
+          .fetch(assetUrl, { cache: "force-cache", credentials: "omit" })
           .then((response) => {
-            if (!response.ok) throw new Error("Applause asset unavailable");
+            if (!response.ok) throw new Error("Audio asset unavailable");
             return response.arrayBuffer();
           })
           .catch(() => null);
@@ -2759,6 +2769,7 @@
         try {
           if (this.context.state === "suspended") await this.context.resume();
           this.prepareApplause();
+          this.prepareScore();
           this.startAmbience();
           return this.context.state === "running";
         } catch {
@@ -2810,30 +2821,7 @@
         if (!this.context || !this.applauseDataPromise) return Promise.resolve(null);
         if (this.applauseDecodePromise) return this.applauseDecodePromise;
 
-        this.applauseDecodePromise = this.applauseDataPromise
-          .then((audioData) => {
-            if (!audioData) return null;
-
-            return new Promise((resolve) => {
-              let settled = false;
-              const finish = (buffer) => {
-                if (settled) return;
-                settled = true;
-                resolve(buffer || null);
-              };
-
-              try {
-                const decodeResult = this.context.decodeAudioData(
-                  audioData.slice(0),
-                  finish,
-                  () => finish(null),
-                );
-                if (decodeResult?.then) decodeResult.then(finish).catch(() => finish(null));
-              } catch {
-                finish(null);
-              }
-            });
-          })
+        this.applauseDecodePromise = this.decodeAudioAsset(this.applauseDataPromise)
           .then((buffer) => {
             this.applauseBuffer = buffer;
             return buffer;
@@ -2841,6 +2829,47 @@
           .catch(() => null);
 
         return this.applauseDecodePromise;
+      }
+
+      prepareScore() {
+        if (this.scoreBuffer) return Promise.resolve(this.scoreBuffer);
+        if (!this.context || !this.scoreDataPromise) return Promise.resolve(null);
+        if (this.scoreDecodePromise) return this.scoreDecodePromise;
+
+        this.scoreDecodePromise = this.decodeAudioAsset(this.scoreDataPromise)
+          .then((buffer) => {
+            this.scoreBuffer = buffer;
+            return buffer;
+          })
+          .catch(() => null);
+
+        return this.scoreDecodePromise;
+      }
+
+      decodeAudioAsset(dataPromise) {
+        return dataPromise.then((audioData) => {
+          if (!audioData || !this.context) return null;
+
+          return new Promise((resolve) => {
+            let settled = false;
+            const finish = (buffer) => {
+              if (settled) return;
+              settled = true;
+              resolve(buffer || null);
+            };
+
+            try {
+              const decodeResult = this.context.decodeAudioData(
+                audioData.slice(0),
+                finish,
+                () => finish(null),
+              );
+              if (decodeResult?.then) decodeResult.then(finish).catch(() => finish(null));
+            } catch {
+              finish(null);
+            }
+          });
+        });
       }
 
       createNoiseBuffer(duration) {
@@ -2928,6 +2957,69 @@
           this.muted ? 0.0001 : this.outputLevel,
           now + 1.1,
         );
+      }
+
+      startScore() {
+        if (!this.context || !this.master || this.scoreStarted) return;
+
+        this.scoreStarted = true;
+        const requestedAt = this.context.currentTime;
+        const beginPlayback = (buffer) => {
+          if (!buffer || !this.context || !this.master || this.scoreFadeRequested) return;
+
+          const now = this.context.currentTime + 0.01;
+          const elapsedWhileLoading = Math.max(0, now - requestedAt);
+          const offset = Math.min(elapsedWhileLoading, Math.max(0, buffer.duration - 0.1));
+          const source = this.context.createBufferSource();
+          const warmth = this.context.createBiquadFilter();
+          const gain = this.context.createGain();
+
+          source.buffer = buffer;
+          source.loop = false;
+          warmth.type = "lowpass";
+          warmth.frequency.value = 15000;
+          warmth.Q.value = 0.22;
+          gain.gain.setValueAtTime(0.0001, now);
+          gain.gain.exponentialRampToValueAtTime(0.42, now + 0.8);
+          gain.gain.setValueAtTime(0.42, now + 2.9);
+          gain.gain.exponentialRampToValueAtTime(this.scoreTargetLevel, now + 4.15);
+          source.connect(warmth);
+          warmth.connect(gain);
+          gain.connect(this.master);
+          source.start(now, offset);
+
+          this.scoreSource = source;
+          this.scoreGain = gain;
+
+          if (this.ambience) {
+            this.ambience.gain.cancelScheduledValues(now);
+            this.ambience.gain.setValueAtTime(
+              Math.max(this.ambience.gain.value, 0.0001),
+              now,
+            );
+            this.ambience.gain.exponentialRampToValueAtTime(0.14, now + 1.35);
+          }
+        };
+
+        if (this.scoreBuffer) {
+          beginPlayback(this.scoreBuffer);
+          return;
+        }
+
+        this.prepareScore().then(beginPlayback);
+      }
+
+      fadeScore(duration = 1.05, delay = 0) {
+        this.scoreFadeRequested = true;
+        if (!this.context || !this.scoreGain) return;
+
+        const now = this.context.currentTime;
+        const start = now + Math.max(delay, 0);
+        const currentLevel = Math.max(this.scoreGain.gain.value, 0.0001);
+        this.scoreGain.gain.cancelScheduledValues(now);
+        this.scoreGain.gain.setValueAtTime(currentLevel, now);
+        this.scoreGain.gain.setValueAtTime(currentLevel, start);
+        this.scoreGain.gain.exponentialRampToValueAtTime(0.0001, start + duration);
       }
 
       bassHit() {
@@ -3344,6 +3436,7 @@
         this.started = true;
         document.body.classList.add("is-transitioning");
         setInteractive(this.launchStage, false);
+        this.audio?.fadeScore(this.reducedMotion ? 0.18 : 1.05);
         if (!this.reducedMotion) this.audio?.zoomBass(this.gsap ? 0.55 : 0);
         this.audio?.fadeOut(
           this.reducedMotion ? 0.2 : this.gsap ? 0.62 : 0.65,
@@ -3645,6 +3738,7 @@
 
         this.audio?.unlock().then((unlocked) => {
           if (!unlocked) return;
+          this.audio.startScore();
           this.audio.bassHit();
           this.audio.fabricRush();
           this.audio.curtainApplause(this.reducedMotion ? 0.04 : 0.12);
