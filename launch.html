@@ -565,6 +565,7 @@
   }
 
   .studio-loader {
+    position: relative;
     width: min(540px, 100%);
     margin: clamp(30px, 4.5vh, 48px) auto 0;
   }
@@ -650,6 +651,57 @@
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.18);
     transform: scaleX(0);
     transform-origin: left center;
+  }
+
+  .closing-lyric {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    gap: clamp(14px, 2vh, 22px);
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .closing-lyric::before {
+    content: "Final movement";
+    color: rgba(245, 243, 236, 0.34);
+    font-family: var(--font-sans);
+    font-size: clamp(0.46rem, 0.52vw, 0.54rem);
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+  }
+
+  .closing-lyric::after {
+    content: "";
+    width: clamp(42px, 5vw, 72px);
+    height: 1px;
+    background: rgba(245, 243, 236, 0.3);
+  }
+
+  .closing-lyric-text {
+    display: grid;
+    min-height: 2.12em;
+    max-width: 21ch;
+    place-items: center;
+    margin: 0;
+    color: var(--ivory);
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3.2vw, 3.25rem);
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    line-height: 1.06;
+    text-align: center;
+    text-wrap: balance;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.045);
+    will-change: opacity, transform, filter;
+  }
+
+  .studio-loader.is-voiceover + .enter-now {
+    pointer-events: none;
   }
 
   .enter-now {
@@ -1221,6 +1273,14 @@
 
     .loader-countdown-value {
       font-size: clamp(4rem, 15vh, 6.5rem);
+    }
+
+    .closing-lyric {
+      gap: 10px;
+    }
+
+    .closing-lyric-text {
+      font-size: clamp(1.45rem, 5.2vh, 2.25rem);
     }
 
     .enter-now {
@@ -2283,6 +2343,9 @@
               <span class="loader-progress" id="loaderProgress"></span>
               <i></i><i></i><i></i><i></i><i></i>
             </div>
+            <div class="closing-lyric" id="closingLyric" aria-hidden="true">
+              <p class="closing-lyric-text" id="closingLyricText"></p>
+            </div>
           </div>
 
           <a class="enter-now magnetic" id="enterNow" href="https://www.madane.in/" aria-label="Enter the Madane Design Workshop studio now">
@@ -2743,6 +2806,8 @@
         this.scoreSource = null;
         this.scoreGain = null;
         this.scoreStarted = false;
+        this.scoreStartedAt = null;
+        this.scoreDuration = 0;
         this.scoreCompletionPromise = null;
         this.resolveScoreCompletion = null;
         this.scoreEnded = false;
@@ -2998,6 +3063,8 @@
           source.connect(gain);
           gain.connect(this.master);
           source.onended = () => finishPlayback(true);
+          this.scoreStartedAt = now;
+          this.scoreDuration = buffer.duration;
           source.start(now, 0);
 
           this.scoreSource = source;
@@ -3024,6 +3091,15 @@
 
       waitForScore() {
         return this.scoreCompletionPromise || Promise.resolve(false);
+      }
+
+      getScoreElapsed() {
+        if (!this.context || this.scoreStartedAt === null) return null;
+        return clamp(
+          this.context.currentTime - this.scoreStartedAt,
+          0,
+          this.scoreDuration || Number.POSITIVE_INFINITY,
+        );
       }
 
       bassHit() {
@@ -3273,6 +3349,14 @@
       "Opening the doors",
     ];
 
+    /* Spoken-word cue points in the exact 19.9575-second launch master. */
+    const CLOSING_LYRIC_CUES = [
+      { at: 12.953, hideAt: 14.52, text: "Not simply for today\u2026" },
+      { at: 15.28, hideAt: 16.76, text: "But for generations to come." },
+      { at: 17.41, hideAt: 18.15, text: "Welcome\u2026" },
+      { at: 18.877, hideAt: null, text: "To a new chapter." },
+    ];
+
     class StudioLoader {
       constructor({ gsap, audio, reducedMotion = false } = {}) {
         this.gsap = gsap;
@@ -3283,7 +3367,16 @@
         this.index = qs("#loaderIndex");
         this.progress = qs("#loaderProgress");
         this.countdown = qs("#countdownValue");
+        this.countdownGroup = qs(".loader-countdown", this.element);
+        this.copy = qs(".loader-copy", this.element);
+        this.track = qs(".loader-track", this.element);
+        this.closingLyric = qs("#closingLyric");
+        this.closingLyricText = qs("#closingLyricText");
+        this.enterNow = qs("#enterNow");
         this.timeline = null;
+        this.closingTimeline = null;
+        this.closingCompletionPromise = null;
+        this.lyricTimers = [];
         this.timer = 0;
         this.countdownTimer = 0;
         this.finishTimer = 0;
@@ -3298,7 +3391,10 @@
         return new Promise((resolve) => {
           this.timeline = this.gsap.timeline({
             defaults: { ease: "power2.out" },
-            onComplete: resolve,
+            onComplete: () => {
+              this.updateCountdown(0);
+              resolve();
+            },
           });
 
           this.gsap.set(this.progress, { scaleX: 0 });
@@ -3408,19 +3504,97 @@
             this.updateCountdown(secondsRemaining);
           }, 1000);
 
-          this.finishTimer = window.setTimeout(resolve, totalDuration);
+          this.finishTimer = window.setTimeout(() => {
+            this.updateCountdown(0);
+            resolve();
+          }, totalDuration);
         });
       }
 
-      holdForScore() {
-        this.countdown.textContent = "0";
-        this.index.textContent = "05";
-        this.label.textContent = "Completing the final movement";
-        this.element.setAttribute("aria-label", "Completing the final movement");
+      playClosingLyrics() {
+        if (this.closingCompletionPromise) return this.closingCompletionPromise;
+
+        const scoreElapsed = this.audio?.getScoreElapsed?.();
+        const elapsed = Number.isFinite(scoreElapsed) ? scoreElapsed : CLOSING_LYRIC_CUES[0].at;
+        const lastCue = CLOSING_LYRIC_CUES[CLOSING_LYRIC_CUES.length - 1];
+        const completeAt = Math.max(0.85, lastCue.at - elapsed + 0.88);
+
+        this.element.classList.add("is-voiceover");
+        this.closingLyric.setAttribute("aria-hidden", "false");
+        this.element.setAttribute("aria-label", "Final spoken lines");
+
+        this.closingCompletionPromise = new Promise((resolve) => {
+          if (!this.gsap || this.reducedMotion) {
+            this.countdownGroup.style.visibility = "hidden";
+            this.copy.style.visibility = "hidden";
+            this.track.style.visibility = "hidden";
+            this.enterNow.style.visibility = "hidden";
+            this.closingLyric.style.visibility = "visible";
+            this.closingLyric.style.opacity = "1";
+
+            CLOSING_LYRIC_CUES.forEach((cue) => {
+              if (cue.hideAt !== null && cue.hideAt <= elapsed) return;
+              const showDelay = Math.max(0, cue.at - elapsed) * 1000;
+              this.lyricTimers.push(window.setTimeout(() => {
+                this.closingLyricText.textContent = cue.text;
+                this.element.setAttribute("aria-label", cue.text);
+              }, showDelay));
+            });
+
+            this.lyricTimers.push(window.setTimeout(resolve, completeAt * 1000));
+            return;
+          }
+
+          this.closingTimeline = this.gsap.timeline({
+            defaults: { ease: "power2.out" },
+            onComplete: resolve,
+          });
+          this.closingTimeline
+            .to(
+              [this.countdownGroup, this.copy, this.track, this.enterNow],
+              { autoAlpha: 0, y: -5, duration: 0.24, stagger: 0.02 },
+              0,
+            )
+            .set(this.closingLyric, { visibility: "visible" }, 0.08)
+            .to(this.closingLyric, { autoAlpha: 1, duration: 0.36 }, 0.08);
+
+          CLOSING_LYRIC_CUES.forEach((cue, cueIndex) => {
+            if (cue.hideAt !== null && cue.hideAt <= elapsed) return;
+
+            const showAt = Math.max(0.12, cue.at - elapsed);
+            this.closingTimeline
+              .call(() => {
+                this.closingLyricText.textContent = cue.text;
+                this.element.setAttribute("aria-label", cue.text);
+              }, [], showAt)
+              .fromTo(
+                this.closingLyricText,
+                { autoAlpha: 0, y: 12, filter: "blur(5px)" },
+                { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.34 },
+                showAt,
+              );
+
+            if (cue.hideAt !== null) {
+              const hideAt = Math.max(showAt + 0.62, cue.hideAt - elapsed);
+              this.closingTimeline.to(
+                this.closingLyricText,
+                { autoAlpha: 0, y: -7, filter: "blur(3px)", duration: 0.28, ease: "power2.in" },
+                hideAt,
+              );
+            } else if (cueIndex === CLOSING_LYRIC_CUES.length - 1) {
+              this.closingTimeline.to({}, { duration: 0.01 }, completeAt);
+            }
+          });
+        });
+
+        return this.closingCompletionPromise;
       }
 
       stop() {
         this.timeline?.kill();
+        this.closingTimeline?.kill();
+        this.lyricTimers.forEach((timer) => window.clearTimeout(timer));
+        this.lyricTimers.length = 0;
         window.clearInterval(this.timer);
         window.clearInterval(this.countdownTimer);
         window.clearTimeout(this.finishTimer);
@@ -4278,8 +4452,7 @@
           revealCompleted = true;
           window.clearTimeout(revealSafetyTimer);
           await loader.start();
-          loader.holdForScore();
-          await audio.waitForScore();
+          await Promise.all([audio.waitForScore(), loader.playClosingLyrics()]);
           transition.go();
         } catch {
           window.clearTimeout(revealSafetyTimer);
