@@ -2689,6 +2689,7 @@
         this.limiter = null;
         this.ambience = null;
         this.noiseBuffer = null;
+        this.clapBuffer = null;
         this.ambienceStarted = false;
         this.muted = false;
         this.outputLevel = 0.9;
@@ -2722,6 +2723,7 @@
         this.master.connect(this.limiter);
         this.limiter.connect(this.context.destination);
         this.noiseBuffer = this.createNoiseBuffer(4);
+        this.clapBuffer = this.createClapBuffer(0.18);
         return this.context;
       }
 
@@ -2735,6 +2737,32 @@
           const white = Math.random() * 2 - 1;
           previous = previous * 0.985 + white * 0.015;
           channel[index] = previous * 3.2;
+        }
+
+        return buffer;
+      }
+
+      createClapBuffer(duration) {
+        const frameCount = Math.round(this.context.sampleRate * duration);
+        const buffer = this.context.createBuffer(1, frameCount, this.context.sampleRate);
+        const channel = buffer.getChannelData(0);
+        const microBursts = [
+          { at: 0, decay: 0.009, level: 1 },
+          { at: 0.014, decay: 0.012, level: 0.72 },
+          { at: 0.031, decay: 0.018, level: 0.5 },
+        ];
+
+        for (let index = 0; index < frameCount; index += 1) {
+          const time = index / this.context.sampleRate;
+          let envelope = Math.exp(-time / 0.065) * 0.12;
+
+          microBursts.forEach((burst) => {
+            if (time >= burst.at) {
+              envelope += burst.level * Math.exp(-(time - burst.at) / burst.decay);
+            }
+          });
+
+          channel[index] = (Math.random() * 2 - 1) * Math.min(envelope, 1) * 0.82;
         }
 
         return buffer;
@@ -2828,6 +2856,51 @@
         filter.connect(gain);
         gain.connect(this.master);
         source.start(now, 0.2, 2.6);
+      }
+
+      curtainClaps(delay = 0.12) {
+        if (!this.context || this.muted || !this.clapBuffer) return;
+
+        const start = this.context.currentTime + Math.max(delay, 0);
+        const offsets = [0, 0.12, 0.27, 0.46, 0.68, 0.94, 1.18];
+        const pans = [-0.58, 0.42, -0.16, 0.66, -0.72, 0.2, 0.54];
+
+        offsets.forEach((offset, index) => {
+          const at = start + offset;
+          const source = this.context.createBufferSource();
+          const highpass = this.context.createBiquadFilter();
+          const presence = this.context.createBiquadFilter();
+          const gain = this.context.createGain();
+          const panner = typeof this.context.createStereoPanner === "function"
+            ? this.context.createStereoPanner()
+            : null;
+
+          source.buffer = this.clapBuffer;
+          source.playbackRate.value = 0.94 + (index % 4) * 0.025;
+          highpass.type = "highpass";
+          highpass.frequency.value = 430 + (index % 3) * 70;
+          presence.type = "bandpass";
+          presence.frequency.value = 1280 + (index % 4) * 180;
+          presence.Q.value = 0.72;
+          gain.gain.setValueAtTime(0.0001, at);
+          gain.gain.exponentialRampToValueAtTime(0.17 + (index % 3) * 0.018, at + 0.004);
+          gain.gain.exponentialRampToValueAtTime(0.0001, at + 0.16);
+
+          source.connect(highpass);
+          highpass.connect(presence);
+          presence.connect(gain);
+
+          if (panner) {
+            panner.pan.value = pans[index];
+            gain.connect(panner);
+            panner.connect(this.master);
+          } else {
+            gain.connect(this.master);
+          }
+
+          source.start(at);
+          source.stop(at + 0.19);
+        });
       }
 
       revealChord() {
@@ -3362,6 +3435,7 @@
           if (!unlocked) return;
           this.audio.bassHit();
           this.audio.fabricRush();
+          this.audio.curtainClaps(this.reducedMotion ? 0.04 : 0.12);
         });
         this.particles?.burst(1.15);
 
