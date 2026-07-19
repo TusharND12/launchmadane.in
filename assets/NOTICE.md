@@ -9,6 +9,6 @@ It is used under the Mixkit Sound Effects Free License:
 
 https://mixkit.co/license/#sfxFree
 
-`madane-launch-score.mp3` is a web-optimized derivative of the user-supplied
-ElevenLabs MP3. It is normalized to a controlled background-music level,
-converted to stereo at 44.1 kHz / 128 kbps, and given short safety fades.
+`madane-launch-score-full.mp3` is an exact, unmodified copy of the
+user-supplied ElevenLabs MP3. It is played from 0:00 through its natural end
+without trimming, re-encoding, or file-level fades.
